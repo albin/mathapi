@@ -3,7 +3,11 @@
 
 Math.random();  
 Math.max(); -Alex W  
-Math.min(); -Marcus W    
+Find the lowest value between x and y -Marcus W  
+```javascript  
+var x = 10, y = -20;  
+var z = Math.min(x, y);  
+```   
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  -Jason  
@@ -15,18 +19,24 @@ Math.sqrt(1/2);
 Math.sqrt(x); - Andreas R  
 Math.fround();  
 Math.ceil();  
-<<<<<<< HEAD
 Math.cos(); -Andreas L 
 <<<<<<< HEAD
 =======
 Math.trunc(); -Rose
+<<<<<<< HEAD
 >>>>>>> 26484c4aff422545c27f4b60a75b9740f4c087d4
 =======
 Math.cos(); -Andreas L  
+=======
+>>>>>>> c9a47cf6856ac7f6f9c67f9538f5beb3482f85ae
 
 
 Pythagoras sats - Derek  
-returnera radie från en area - Patricio V
+returnera radie från en area - Patricio V - Radie = √ ( Math.sqrt(area) / Math.pi)
+<<<<<<< HEAD
+=======
+
+>>>>>>> c9a47cf6856ac7f6f9c67f9538f5beb3482f85ae
 volym - Olle  
 Derivera  
 
@@ -41,4 +51,3 @@ Manhattan distance
 ```
 /manh/0,0/10,10
 ```
->>>>>>> 83a5529de9f8c78b9125ff78cc6ca0c504151a88
