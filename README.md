@@ -7,7 +7,9 @@ Math.min(); -Marcus W
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  -Jason  
-Math.pow(); -Jarl  
+Pow Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl   
+/pow/4/3 
+
 Math.log();  -Faj  
 Math.sin();  
 Math.cbrt();  
