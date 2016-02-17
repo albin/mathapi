@@ -12,8 +12,11 @@ Find the lowest value of x and y -Marcus W
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  -Jason  
-Pow Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl   
-/pow/4/3 
+## /pow/4/3 
+Pow Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl  
+```
+/pow/3.4/4.5
+```
 
 Math.log();  -Faj  
 Math.sin();  
@@ -22,24 +25,14 @@ Math.sqrt(1/2);
 Math.sqrt(x); - Andreas R  
 Math.fround();  
 Math.ceil();  
-Math.cos(); -Andreas L 
-<<<<<<< HEAD
-=======
+Math.cos(); -Andreas L   
 Math.trunc(); -Rose
-<<<<<<< HEAD
->>>>>>> 26484c4aff422545c27f4b60a75b9740f4c087d4
-=======
-Math.cos(); -Andreas L  
-=======
->>>>>>> c9a47cf6856ac7f6f9c67f9538f5beb3482f85ae
 
+Math.cos(); -Andreas L  
 
 Pythagoras sats - Derek  
-returnera radie från en area - Patricio V. - Radie = √ ( Math.sqrt(area) / Math.pi)
-<<<<<<< HEAD
-=======
+returnera radie från en area - Patricio V.
 
->>>>>>> c9a47cf6856ac7f6f9c67f9538f5beb3482f85ae
 volym - Olle  
 Derivera  
 
