@@ -17,3 +17,20 @@ Math.fround();
 Math.ceil();  
 Math.cos(); -Andreas L  
 
+
+Pythagoras sats - Derek
+returnera radie från en area - Patricio
+volym - Olle
+Derivera
+
+
+
+Euclidean distance
+```
+/eucl/0,0/10,10
+```
+
+Manhattan distance
+```
+/manh/0,0/10,10
+```
