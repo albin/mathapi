@@ -103,12 +103,23 @@ Trunc,  returns the integral part of a number by removing any fractional digits 
 ```  
 
 ## /acos/x
-Acos returns a numeric value between 0 and π radians for x between -1 and 1. 
+Acos, returns a numeric value between 0 and π radians for x between -1 and 1. 
 ```
 Math.acos(x)
 ```
 
-Pythagoras sats - Derek  
+## /pyth/:a/:b/:c
+Pythagora's Theorem - Given a right triangle where c is the length of the hypotenus, a and b are the two other sides, this equation can be formed: a^2+b^2=c^2
+```
+/pyth/a/b/c
+```
+Enter two of the three sides to get the length of the third side.  
+Example:
+```
+/pyth/a/4/5
+/pyth/3/b/5
+/pyth/3/4/c
+```
 returnera radie från en area - Patricio V.
 
 volym - Olle  

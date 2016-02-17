@@ -33,11 +33,11 @@ app.get('/volume/:type/*', function(req, res) {
 	}
 });
 
+
+//add you app.get below the last input.
 app.get('/low/:number1/:number2', function (req, res) {
 	var number1 = parseInt(req.params.number1);
 	var number2 = parseInt(req.params.number2);
-
-
 
 	if (isNaN(number1) === true || isNaN(number2) === true) {
 
@@ -52,8 +52,33 @@ app.get('/low/:number1/:number2', function (req, res) {
 	}
 });
 
-app.use(express.static("public"));
+app.get('/pyth/:a/:b/:c', function (req, res){
+	var a = parseFloat(req.params.a);
+	var b = parseFloat(req.params.b);
+	var c = parseFloat(req.params.c);
+	var result;
+	if (isNaN(a) && !isNaN(b) && !isNaN(c)) {
+		result = Math.sqrt((c*c)-(b*b));
+		res.json({status: 'OK', result: result});
+	}
+	else if (!isNaN(a) && isNaN(b) && !isNaN(c)) {
+		result = Math.sqrt((c*c)-(a*a));
+		res.json({status: 'OK', result: result});
+	}
+	else if (!isNaN(a) && !isNaN(b) && isNaN(c)) {
+		result = Math.sqrt((a*a)+(b*b));
+		res.json({status: 'OK', result: result});
+	}
+	else{
+		res.json({status: 'ERR'})
+	}
+});
 
+
+
+
+//Dont add anything below this line.
+app.use(express.static("public"));
 app.use('/', router);
 
 app.get('/pyth/:a/:b/:c', function (req, res){
