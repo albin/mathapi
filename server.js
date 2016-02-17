@@ -14,7 +14,7 @@ Routes will be added below.
 All responses must be json.
 All statuses must be "OK" if it works otherwise "ERR".
 All responses needs a result.
-Atleast two inputs for each function.
+Atleast two inputs for when its posible for each function.
 Float numbers seperated by ".", example /pow/1.5/2.5
 
 Example down below, how marcus made his get on math.min.
