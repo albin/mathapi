@@ -7,7 +7,7 @@ Math.min(); -Marcus W
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  
-Math.pow(); -Jarl, Faj
+Math.pow(); -Jarl -Faj
 Math.log();  
 Math.sin();  
 Math.cbrt();  
