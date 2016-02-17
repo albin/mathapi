@@ -109,7 +109,7 @@ Math.acos(x)
 ```
 
 ## /pyth/:a/:b/:c
-Pythagora's Theorem - Given a right triangle where c is the length of the hypotenus, a and b are the two other sides, this equation can be formed. \displaystyle a^2+b^2=c^2
+Pythagora's Theorem - Given a right triangle where c is the length of the hypotenus, a and b are the two other sides, this equation can be formed: a^2+b^2=c^2
 ```
 /pyth/a/b/c
 ```
