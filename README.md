@@ -55,7 +55,7 @@ Log, returns the natural logarithm (base e) of a number - Faj
 ```
 
 ## /sin/1
-Sin, returns the sine of a number  
+Sin, returns the sine of a number - free  
 ```
 /sin/x  
 ```
