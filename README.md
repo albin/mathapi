@@ -113,7 +113,13 @@ Pythagora's Theorem - Given a right triangle where c is the length of the hypote
 ```
 /pyth/a/b/c
 ```
-
+Enter two of the three sides to get the length of the third side.  
+Example:
+```
+/pyth/a/4/5
+/pyth/3/b/5
+/pyth/3/4/c
+```
 returnera radie från en area - Patricio V.
 
 volym - Olle  
