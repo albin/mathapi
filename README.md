@@ -2,7 +2,7 @@
 
 
 Math.random();  
-Math.max(); -Alex   
+Math.max(); -Alex W
 Math.min(); -Marcus W    
 Math.round(); -Nadim  
 Math.floor(); -Anders  
@@ -17,7 +17,3 @@ Math.fround();
 Math.ceil();  
 Math.cos(); -Andreas L  
 
-
-
-
-slapp.
