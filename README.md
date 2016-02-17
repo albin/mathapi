@@ -1,7 +1,7 @@
 # mathapi
 
 
-## /highest/x/y
+## /hig/x/y
 Find the highest value of x and y -Alex W  
 ```
 /hig/1.0/20  
@@ -12,8 +12,12 @@ Find the lowest value of x and y -Marcus W
 ```
 /low/1.0/100  
 ```
+## /rou/20.5
+Returns the value 21 -Nadim  
+```
+/rou/x  
+```
 
-Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  -Jason  
 ## /pow/4/3 
