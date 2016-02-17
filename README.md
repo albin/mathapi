@@ -1,8 +1,12 @@
 # mathapi
 
 
-Math.random();  
-Math.max(); -Alex W  
+## /highest/x/y
+Find the highest value of x and y -Alex W  
+```
+/hig/1.0/20  
+```
+ 
 ## /low/x/y
 Find the lowest value of x and y -Marcus W  
 ```
