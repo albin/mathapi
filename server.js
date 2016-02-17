@@ -59,11 +59,10 @@ app.get('/pyth/:a/:b/:C', function (req, res){
 		res.json({status: 'OK', result: result});
 	}
 	else{
-		res.json(status: 'ERR')
+		res.json({status: 'ERR'})
 	}
-
-
 });
+
 app.listen(port);
 console.log('Up and runing at port' + port);
 
