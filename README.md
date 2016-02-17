@@ -25,7 +25,7 @@ Math.sqrt(1/2);
 Math.sqrt(x); - Andreas R  
 Math.fround();  
 Math.ceil();  
-Math.cos(); -Andreas L 
+Math.cos(); -Andreas L   
 Math.trunc(); -Rose
 
 Math.cos(); -Andreas L  
