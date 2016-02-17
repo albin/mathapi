@@ -41,7 +41,7 @@ app.use(express.static("public"));
 
 app.use('/', router);
 
-app.get('/pyth/:a/:b/:C', function (req, res){
+app.get('/pyth/:a/:b/:c', function (req, res){
 	var a = parseFloat(req.params.a);
 	var b = parseFloat(req.params.b);
 	var c = parseFloat(req.params.c);
