@@ -67,6 +67,7 @@ Math.sqrt(x); - Andreas R
 Math.fround();  
 Math.ceil();  
 Math.cos(); -Andreas L   
+
 Math.trunc(); -Rose
 ## /acos/x
 Acos returns a numeric value between 0 and π radians for x between -1 and 1. 
@@ -89,8 +90,9 @@ Euclidean distance - The Euclidean distance between points p and q is the length
 ```
 /eucl/0,0/10,10
 ```
+## /manh/x/y
 
-Manhattan distance
+Manhattan distance - The distance between two points measured along axes at right angles -- free
 ```
 /manh/0,0/10,10
 ```
