@@ -15,11 +15,8 @@ Math.sqrt(1/2);
 Math.sqrt(x); - Andreas R  
 Math.fround();  
 Math.ceil();  
-<<<<<<< HEAD
 Math.cos(); -Andreas L 
 Math.trunc(); -Rose
-=======
-Math.cos(); -Andreas L  
 
 
 Pythagoras sats - Derek  
@@ -38,4 +35,3 @@ Manhattan distance
 ```
 /manh/0,0/10,10
 ```
->>>>>>> 83a5529de9f8c78b9125ff78cc6ca0c504151a88
