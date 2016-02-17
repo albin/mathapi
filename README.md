@@ -12,32 +12,54 @@ camelCase for identifier names (variables and functions).
 
 
 
-## /high/x/y
-Find the highest value of x and y -Alex W  
+## /hig/x/y
+Max, Find the highest value of x and y - Alex W  
 ```
 /hig/1.0/20  
 ```
- 
+
 ## /low/x/y
-Find the lowest value of x and y -Marcus W  
+Min, Find the lowest value of x and y - Marcus W  
 ```
 /low/1.0/100  
 ```
+
 ## /rou/20.5
-Returns the value 21 -Nadim  
+Round, Returns the value 21 - Nadim  
 ```
 /rou/x  
+```  
+
+## /flo/45.9
+Floor, Rounds down to lowest integer - Anders  
+```
+/flo/x  
 ```
 
-Math.floor(); -Anders  
-Math.tan();  -Jason  
+## /tan/1
+Ten, returns a numeric value that represents the tangent of the angle - Jason
+```
+/tan/x  
+```
+
 ## /pow/4/3 
-Pow Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl  
+Pow, Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl  
 ```
 /pow/3.4/4.5
 ```
 
-Math.log();  -Faj  
+## /log/1
+Log, returns the natural logarithm (base e) of a number - Faj  
+```
+/log/x  
+```
+
+## /sin/1
+Sin, returns the sine of a number - free  
+```
+/sin/x  
+```
+
 Math.sin();  
 Math.cbrt();  
 Math.sqrt(1/2);  
