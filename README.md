@@ -46,6 +46,12 @@ Math.fround();
 Math.ceil();  
 Math.cos(); -Andreas L   
 Math.trunc(); -Rose
+## /acos/x
+Acos returns a numeric value between 0 and π radians for x between -1 and 1. 
+```
+Math.acos(x)
+```
+
 
 Math.cos(); -Andreas L  
 
