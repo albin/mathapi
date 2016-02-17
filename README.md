@@ -16,3 +16,8 @@ Math.sqrt(x); - Andreas R
 Math.fround();  
 Math.ceil();  
 Math.cos(); -Andreas L  
+
+
+
+
+slapp.
