@@ -92,7 +92,19 @@ app.get('/pow/:base/:second', function(req,res){
 	})
 	}
 
-})
+});
+//Mayra
+app.get('/ceil/:x', function (req, res) {
+    
+    var x = Math.ceil(req.params.x.replace("," , ".")); 
+	   if(isNaN(x)===true){
+        res.json({Status: 'ERR'});
+    
+    }else{
+        var result = Math.ceil(x);
+        res.json({Status: 'OK', Result: result})
+    }
+});
 
 
 
