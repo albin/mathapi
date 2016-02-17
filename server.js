@@ -19,13 +19,6 @@ Float numbers seperated by ".", example /pow/1.5/2.5
 
 Example down below, how marcus made his get on math.min.
 */
-
-app.get('/low/:number1/:number2', function (req, res) {
-	var number1 = parseInt(req.params.number1);
-	var number2 = parseInt(req.params.number2);
-
-<<<<<<< HEAD
-*/
 app.get('/volume/:type/*', function(req, res) {
 	var hello = "Hello";
 	res.json(hello);
@@ -37,7 +30,15 @@ app.get('/volume/:type/*', function(req, res) {
 	switch(req.params.type) {
 		case "cyl":
 			break;
-=======
+	}
+});
+
+app.get('/low/:number1/:number2', function (req, res) {
+	var number1 = parseInt(req.params.number1);
+	var number2 = parseInt(req.params.number2);
+
+
+
 	if (isNaN(number1) === true || isNaN(number2) === true) {
 
 		res.json({ status: "ERR"});
@@ -48,7 +49,6 @@ app.get('/volume/:type/*', function(req, res) {
 
 		res.json({status: "Ok", result: total});
 
->>>>>>> 9681a92cac44b0898799cd4ab44f2f259912c389
 	}
 });
 
