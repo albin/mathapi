@@ -17,12 +17,16 @@ Math.fround();
 Math.ceil();  
 <<<<<<< HEAD
 Math.cos(); -Andreas L 
+<<<<<<< HEAD
+=======
+Math.trunc(); -Rose
+>>>>>>> 26484c4aff422545c27f4b60a75b9740f4c087d4
 =======
 Math.cos(); -Andreas L  
 
 
 Pythagoras sats - Derek  
-returnera radie från en area - Patricio ("radie = √ ( Math.sqrt(area) / Math.pi)")
+returnera radie från en area - Patricio V
 volym - Olle  
 Derivera  
 
