@@ -1,7 +1,16 @@
 # mathapi
 
+## Code conventions 
+###camelCase for identifier names (variables and functions).
+###format for brackets is (){}
+###For more info see comenteded section in server.js file
 
+<<<<<<< HEAD
 ## /hig/x/y
+=======
+
+## /high/x/y
+>>>>>>> e6318a17127b0c081582eee074914e8fdc8f63ff
 Find the highest value of x and y -Alex W  
 ```
 /hig/1.0/20  
