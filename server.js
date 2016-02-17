@@ -9,7 +9,16 @@ var port = process.env.PORT || 3000;
 
 var router = express.Router();
 
+/*
+Routes will be added below.
+All responses must be json.
+All statuses must be "OK" if it works otherwise "ERR".
+All responses needs a result.
+Atleast two inputs for each function.
 
+
+
+*/
 
 app.use(express.static("public"));
 
