@@ -8,10 +8,10 @@ Math.round(); -Nadim
 Math.floor(); -Anders  
 Math.tan();  -Jason
 Math.pow(); -Jarl 
-Math.log();  -Faj
+Math.log();  
 Math.sin();  
 Math.cbrt();  
-Math.sqrt(1/2);  
+Math.sqrt(1/2);  -Faj
 Math.sqrt(x); - Andreas R  
 Math.fround();  
 Math.ceil();  
