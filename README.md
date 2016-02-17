@@ -1,9 +1,14 @@
 # mathapi
 
 ## Code conventions 
-###camelCase for identifier names (variables and functions).
-###format for brackets is (){}
-###For more info see comenteded section in server.js file
+###### Code conventions 
+camelCase for identifier names (variables and functions).
+format for brackets is (){}
+For more info see comenteded section in server.js file
+camelCase for identifier names (variables and functions).
+####format for brackets is (){}
+####For more info see comenteded section in server.js file
+
 
 
 
@@ -51,8 +56,8 @@ volym - Olle
 Derivera  
 
 
-
-Euclidean distance
+## /eucl/p/q
+Euclidean distance - The Euclidean distance between points p and q is the length of the line segment connecting them
 ```
 /eucl/0,0/10,10
 ```
