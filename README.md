@@ -3,7 +3,7 @@
 
 Math.random();  
 Math.max(); -Alex  
-Math.min(); -Marcus  
+Math.min(); -Marcus W    
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  
