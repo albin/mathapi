@@ -118,11 +118,11 @@ Derivera
 ## /eucl/p/q
 Euclidean distance - The Euclidean distance between points p and q is the length of the line segment connecting them
 ```
-/eucl/0,0/10,10
+/eucl/0.0/10.10
 ```
 ## /manh/x/y
 
 Manhattan distance - The distance between two points measured along axes at right angles -- free
 ```
-/manh/0,0/10,10
+/manh/0.0/10.10
 ```
