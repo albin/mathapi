@@ -16,3 +16,7 @@ Math.sqrt(x); - Andreas R
 Math.fround();  
 Math.ceil();  
 Math.cos(); -Andreas L 
++pythagoras sats - Derek
++returnera radie från en area - Patricio
++volym - Olle
++Derivera - Olle
