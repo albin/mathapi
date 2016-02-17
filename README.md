@@ -3,7 +3,11 @@
 
 Math.random();  
 Math.max(); -Alex W  
-Math.min(); -Marcus W    
+Find the lowest value between x and y -Marcus W  
+```javascript  
+var x = 10, y = -20;  
+var z = Math.min(x, y);  
+```   
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  -Jason  
