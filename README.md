@@ -1,33 +1,49 @@
 # mathapi
 
 ## Code conventions 
-###camelCase for identifier names (variables and functions).
-###format for brackets is (){}
-###For more info see comenteded section in server.js file
+###### Code conventions 
+camelCase for identifier names (variables and functions).
+format for brackets is (){}
+For more info see comenteded section in server.js file
+camelCase for identifier names (variables and functions).
+####format for brackets is (){}
+####For more info see comenteded section in server.js file
 
 
 
-## /high/x/y
-Find the highest value of x and y -Alex W  
+
+## /hig/x/y
+Max, Find the highest value of x and y -Alex W  
 ```
 /hig/1.0/20  
 ```
- 
+
 ## /low/x/y
-Find the lowest value of x and y -Marcus W  
+Min, Find the lowest value of x and y -Marcus W  
 ```
 /low/1.0/100  
 ```
+
 ## /rou/20.5
-Returns the value 21 -Nadim  
+Round, Returns the value 21 -Nadim  
 ```
 /rou/x  
+```  
+
+## /flo/45.9
+Floor, Rounds down to lowest integer -Anders  
+```
+/flo/x  
 ```
 
-Math.floor(); -Anders  
-Math.tan();  -Jason  
+## /tan/1
+Ten, returns a numeric value that represents the tangent of the angle -Jason
+```
+/tan/x  
+```
+
 ## /pow/4/3 
-Pow Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl  
+Pow, Return the value of the number 4 to be the power of 3 (4*4*4): - Jarl  
 ```
 /pow/3.4/4.5
 ```
@@ -51,8 +67,8 @@ volym - Olle
 Derivera  
 
 
-
-Euclidean distance
+## /eucl/p/q
+Euclidean distance - The Euclidean distance between points p and q is the length of the line segment connecting them
 ```
 /eucl/0,0/10,10
 ```
