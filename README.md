@@ -31,7 +31,7 @@ Math.trunc(); -Rose
 Math.cos(); -Andreas L  
 
 Pythagoras sats - Derek  
-returnera radie från en area - Patricio V. - Radie = √ ( Math.sqrt(area) / Math.pi)
+returnera radie från en area - Patricio V.
 
 volym - Olle  
 Derivera  
