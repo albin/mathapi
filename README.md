@@ -2,7 +2,7 @@
 
 
 Math.random();  
-Math.max(); -Alex W
+Math.max(); -Alex W  
 Math.min(); -Marcus W    
 Math.round(); -Nadim  
 Math.floor(); -Anders  
