@@ -3,8 +3,8 @@
 ## Code conventions 
 ###### Code conventions 
 camelCase for identifier names (variables and functions).
-format for brackets is (){}
-For more info see comenteded section in server.js file
+format for brackets is (){}  
+For more info see comenteded section in server.js file  
 camelCase for identifier names (variables and functions).
 ####format for brackets is (){}
 ####For more info see comenteded section in server.js file
