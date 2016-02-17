@@ -7,9 +7,9 @@ Math.min(); -Marcus W
 Math.round(); -Nadim  
 Math.floor(); -Anders  
 Math.tan();  
-Math.pow(); -Jarl 
-Math.log();  -Faj
-Math.sin();  
+Math.pow(); -Jarl  
+Math.log();  -Faj  
+Math.sin();   
 Math.cbrt();  
 Math.sqrt(1/2);  
 Math.sqrt(x); - Andreas R  
