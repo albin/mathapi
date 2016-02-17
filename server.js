@@ -14,10 +14,17 @@ Routes will be added below.
 All responses must be json.
 All statuses must be "OK" if it works otherwise "ERR".
 All responses needs a result.
-Atleast two inputs for each function.
+Atleast two inputs for when its posible for each function.
+Float numbers seperated by ".", example /pow/1.5/2.5
 
+Example down below, how marcus made his get on math.min.
+*/
 
+app.get('/low/:number1/:number2', function (req, res) {
+	var number1 = parseInt(req.params.number1);
+	var number2 = parseInt(req.params.number2);
 
+<<<<<<< HEAD
 */
 app.get('/volume/:type/*', function(req, res) {
 	var hello = "Hello";
@@ -30,12 +37,47 @@ app.get('/volume/:type/*', function(req, res) {
 	switch(req.params.type) {
 		case "cyl":
 			break;
+=======
+	if (isNaN(number1) === true || isNaN(number2) === true) {
+
+		res.json({ status: "ERR"});
+
+	} else {
+		
+		var total = Math.min(number1, number2);
+
+		res.json({status: "Ok", result: total});
+
+>>>>>>> 9681a92cac44b0898799cd4ab44f2f259912c389
 	}
 });
 
 app.use(express.static("public"));
 
 app.use('/', router);
+
+app.get('/pyth/:a/:b/:c', function (req, res){
+	var a = parseFloat(req.params.a);
+	var b = parseFloat(req.params.b);
+	var c = parseFloat(req.params.c);
+	var result;
+	if (isNaN(a) && !isNaN(b) && !isNaN(c)) {
+		result = Math.sqrt((c*c)-(b*b));
+		res.json({status: 'OK', result: result});
+	}
+	else if (!isNaN(a) && isNaN(b) && !isNaN(c)) {
+		result = Math.sqrt((c*c)-(a*a));
+		res.json({status: 'OK', result: result});
+	}
+	else if (!isNaN(a) && !isNaN(b) && isNaN(c)) {
+		result = Math.sqrt((a*a)+(b*b));
+		res.json({status: 'OK', result: result});
+	}
+	else{
+		res.json({status: 'ERR'})
+	}
+});
+
 app.listen(port);
 console.log('Up and runing at port' + port);
 
