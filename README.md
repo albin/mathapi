@@ -121,6 +121,9 @@ Example:
 /pyth/3/4/c
 ```
 returnera radie från en area - Patricio V.
+radie = √ ( area / π )
+
+/radie/:area
 
 ## /volume/shape/1/2/3
 Calculate the volume for the geometric figures: cylinder, box, sphere
