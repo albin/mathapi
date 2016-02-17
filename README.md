@@ -12,7 +12,6 @@ Math.log();
 Math.sin();  
 Math.cbrt();  
 Math.sqrt(1/2);  -Faj
-
 Math.sqrt(x); - Andreas R  
 Math.fround();  
 Math.ceil();  
