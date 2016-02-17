@@ -15,7 +15,7 @@ All responses must be json.
 All statuses must be "OK" if it works otherwise "ERR".
 All responses needs a result.
 Atleast two inputs for each function.
-
+Float numbers seperated by ".", example /pow/1.5/2.5
 
 
 */
