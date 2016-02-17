@@ -18,10 +18,10 @@ Math.ceil();
 Math.cos(); -Andreas L  
 
 
-Pythagoras sats - Derek
-returnera radie från en area - Patricio
-volym - Olle
-Derivera
+Pythagoras sats - Derek  
+returnera radie från en area - Patricio  
+volym - Olle  
+Derivera  
 
 
 
