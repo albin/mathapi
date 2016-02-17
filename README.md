@@ -60,16 +60,47 @@ Sin, returns the sine of a number - free
 /sin/x  
 ```
 
-Math.sin();  
-Math.cbrt();  
-Math.sqrt(1/2);  
-Math.sqrt(x); - Andreas R  
-Math.fround();  
-Math.ceil();  
-Math.cos(); -Andreas L   
-Math.trunc(); -Rose
+## /cbr/1
+Cbrt, returns the cube root of a number - free  
+```
+/cbr/x  
+```
 
-Math.cos(); -Andreas L  
+## /sqr1/
+Sqrt1_2, represents the square root of 1/2 which is approximately 0.707 - free  
+```
+/sqr1/x  
+```
+
+## /sqr/1
+Sqrt,  returns the square root of a number - Andreas R  
+```
+/sqr/x  
+```
+
+## /fro/1
+Fround, returns the nearest single precision float representation of a number - free  
+```
+/fro/x  
+```
+
+## /cei/0.95
+Ceil,  returns the smallest integer greater than or equal to a given number - free  
+```
+/cei/x  
+```  
+
+## /cos/1
+Cos,  returns the cosine of a number - Andreas L  
+```
+/cos/x  
+```  
+
+## /tru/13.37
+Trunc,  returns the integral part of a number by removing any fractional digits - Rose  
+```
+/tru/x  
+```  
 
 Pythagoras sats - Derek  
 returnera radie från en area - Patricio V.
