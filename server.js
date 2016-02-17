@@ -19,6 +19,19 @@ Atleast two inputs for each function.
 
 
 */
+app.get('/volume/:type/*', function(req, res) {
+	var hello = "Hello";
+	res.json(hello);
+
+	var url = (req.url).split('/');
+	
+	console.log(url);
+
+	switch(req.params.type) {
+		case "cyl":
+			break;
+	}
+});
 
 app.use(express.static("public"));
 
