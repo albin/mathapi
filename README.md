@@ -21,6 +21,7 @@ Math.trunc(); -Rose
 
 Pythagoras sats - Derek  
 returnera radie från en area - Patricio V
+
 volym - Olle  
 Derivera  
 
