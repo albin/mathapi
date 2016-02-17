@@ -20,6 +20,7 @@ Float numbers seperated by ".", example /pow/1.5/2.5
 Example down below, how marcus made his get on math.min.
 */
 
+//add you app.get below the last input.
 app.get('/low/:number1/:number2', function (req, res) {
 	var number1 = parseInt(req.params.number1);
 	var number2 = parseInt(req.params.number2);
@@ -36,10 +37,6 @@ app.get('/low/:number1/:number2', function (req, res) {
 
 	}
 });
-
-app.use(express.static("public"));
-
-app.use('/', router);
 
 app.get('/pyth/:a/:b/:c', function (req, res){
 	var a = parseFloat(req.params.a);
@@ -63,6 +60,12 @@ app.get('/pyth/:a/:b/:c', function (req, res){
 	}
 });
 
+
+
+
+//Dont add anything below this line.
+app.use(express.static("public"));
+app.use('/', router);
 app.listen(port);
 console.log('Up and runing at port' + port);
 
