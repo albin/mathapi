@@ -17,8 +17,24 @@ All responses needs a result.
 Atleast two inputs for each function.
 Float numbers seperated by ".", example /pow/1.5/2.5
 
-
+Example down below, how marcus made his get on math.min.
 */
+
+app.get('/low/:number1/:number2', function (req, res){
+	var number1 = parseInt(req.params.number1);
+	var number2 = parseInt(req.params.number2);
+
+	if(isNaN(number1) === true || isNaN(number2) === true){
+
+		res.json({ status: "ERR"});
+
+	} else {
+	
+	var total = Math.min(number1, number2);
+	res.json({status: "Ok", result: total});
+
+	}
+});
 
 app.use(express.static("public"));
 
