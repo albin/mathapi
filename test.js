@@ -40,7 +40,56 @@ describe('Function name', function(){
 	it();
 });
 
-*/	
+*/
+//Mayra 
+var x= 1;
+var result = x;
+
+
+describe('Math.ceil, by Mayra', function() {
+
+	it('should load the resultat of Math.ceil: with status OK ' + x, function(done) { 
+		chai.request('http://127.0.0.1:3000').get('/ceil/' + x ).end(function(ERR, res) {
+			
+			res.should.have.status('200');
+
+			res.should.be.json;
+
+			res.body.Result.should.be.an('number');
+
+			done();
+		});
+	});
+    
+    it('should load the resultat of Math.ceil: 1B with status Error', function(done) { 
+
+		chai.request('http://127.0.0.1:3000').get('/ceil/1b'   ).end(function(ERR, res) {
+			
+			res.should.have.status('200');
+
+			res.should.be.json;
+         
+            		res.body.should.be.an('object');
+
+			done();
+		});
+	});
+    
+    it('should load the resultat of Math.ceil: 1,2 with status OK', function(done) { 
+
+		chai.request('http://127.0.0.1:3000').get('/ceil/1,2' + x ).end(function(ERR, res) {
+			
+			res.should.have.status('200');
+
+			res.should.be.json;
+
+			res.body.Result.should.be.an('number');
+
+			done();
+		});
+	});
+
+});
 
 describe("Pythagora's Theorem' by Derek", function(){
 	it('should return a SINGLE object with status OK on /pyth/<a>/<b>/<c> GET', function (done){
