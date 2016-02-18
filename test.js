@@ -41,6 +41,49 @@ describe('Function name', function(){
 });
 
 */
+
+describe("Pythagora's Theorem' by Derek", function(){
+	it('should return a SINGLE object with status OK on /pyth/<a>/<b>/<c> GET', function (done){
+		chai.request('http://127.0.0.1:3000').get('/pyth/3/b/5').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('result');
+			res.body.result.should.be.a('number');
+			done();
+		})
+	});
+	it('should return a SINGLE object with status OK on /pyth/<a>/<b>/<c> GET', function (done){
+		chai.request('http://127.0.0.1:3000').get('/pyth/3.5/b/5.3').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('result');
+			res.body.result.should.be.a('number');
+			done();
+		})
+	});
+	it('should return a SINGLE object with status ERR on /pyth/<a>/<b>/<c> GET', function (done){
+		chai.request('http://127.0.0.1:3000').get('/pyth/a/b/c').end.(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('ERR')
+			done();
+
+		});
+	});
+});
+
+
 //Mayra 
 var x= 1;
 var result = x;
@@ -89,45 +132,4 @@ describe('Math.ceil, by Mayra', function() {
 		});
 	});
 
-});
-
-describe("Pythagora's Theorem' by Derek", function(){
-	it('should return a SINGLE object with status OK on /pyth/<a>/<b>/<c> GET', function (done){
-		chai.request('http://127.0.0.1:3000').get('/pyth/3/b/5').end(function (err, res){
-			res.should.have.status(200);
-			res.should.be.json;
-			res.body.should.be.an('object');
-			res.body.should.have.property('status');
-			res.body.status.should.be.a('string');
-			res.body.status.should.equal('OK')
-			res.body.should.have.property('result');
-			res.body.result.should.be.a('number');
-			done();
-		})
-	});
-	it('should return a SINGLE object with status OK on /pyth/<a>/<b>/<c> GET', function (done){
-		chai.request('http://127.0.0.1:3000').get('/pyth/3.5/b/5.3').end(function (err, res){
-			res.should.have.status(200);
-			res.should.be.json;
-			res.body.should.be.an('object');
-			res.body.should.have.property('status');
-			res.body.status.should.be.a('string');
-			res.body.status.should.equal('OK')
-			res.body.should.have.property('result');
-			res.body.result.should.be.a('number');
-			done();
-		})
-	});
-	it('should return a SINGLE object with status ERR on /pyth/<a>/<b>/<c> GET', function (done){
-		chai.request('http://127.0.0.1:3000').get('/pyth/a/b/c').end.(function (err, res){
-			res.should.have.status(200);
-			res.should.be.json;
-			res.body.should.be.an('object');
-			res.body.should.have.property('status');
-			res.body.status.should.be.a('string');
-			res.body.status.should.equal('ERR')
-			done();
-
-		});
-	});
 });
