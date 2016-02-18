@@ -70,7 +70,7 @@ describe("Pythagora's Theorem' by Derek", function(){
 		})
 	});
 	it('should return a SINGLE object with status ERR on /pyth/<a>/<b>/<c> GET', function (done){
-		chai.request('http://127.0.0.1:3000').get('/pyth/a/b/c').end.(function (err, res){
+		chai.request('http://127.0.0.1:3000').get('/pyth/a/b/c').end(function (err, res){
 			res.should.have.status(200);
 			res.should.be.json;
 			res.body.should.be.an('object');
@@ -133,3 +133,49 @@ describe('Math.ceil, by Mayra', function() {
 	});
 
 });
+describe('GET volume for a box', function() {
+	it('Should GET a single object with status OK on volume/box/1/2/3', function(done) { 
+		chai.request('http://localhost:3000').get('/volume/box/1/2/3').end(function(err, res) {
+			res.should.have.status('200');
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('OK');
+			res.body.should.have.property('answer');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+	it('Should GET Volume for a cylinder with status OK', function(done) {
+		chai.request('http://localhost:3000').get('/volume/cyl/3.5/5.5/6.2').end(function(err, res) {
+			res.should.have.status('200');
+			res.should.be.json;
+			
+			res.body.status.should.equal('OK');
+			res.body.should.have.property('answer');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+	it('Should respond with ERR if any metric is a negative number', function(done) {
+		chai.request('http://localhost:3000').get('/volume/cone/1/-5/6').end(function(err, res) {
+			res.should.have.status('200');
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('ERR');
+			done();
+		});
+	});
+	it('Should respond ERR if any metric is NaN', function(done) {
+		chai.request('http://localhost:3000').get('/volume/sphere/abs').end(function(err, res) {
+			res.should.have.status('200');
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('ERR');
+			done();
+		});
+	});
+});
+		
