@@ -61,7 +61,7 @@ Sin, returns the sine of a number - free
 ```
 
 ## /cbr/1
-Cbrt, returns the cube root of a number - free  
+Cbrt, returns the cube root of a number - Tobias J  
 ```
 /cbr/x  
 ```
