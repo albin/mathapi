@@ -85,7 +85,7 @@ Fround, returns the nearest single precision float representation of a number - 
 ```
 
 ## /cei/0.95
-Ceil,  returns the smallest integer greater than or equal to a given number - free  
+Ceil,  returns the smallest integer greater than or equal to a given number - Mayra
 ```
 /cei/x  
 ```  
