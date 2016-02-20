@@ -221,7 +221,7 @@ describe('Square root Math.sqrt(x) of positive number', function() {
 					res.body.status.should.equal('OK');
 					res.body.answer.should.be.a('number');
 					done();
-				});
+		});
 	});
 
 });
