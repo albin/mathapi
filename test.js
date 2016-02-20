@@ -178,4 +178,51 @@ describe('GET volume for a box', function() {
 		});
 	});
 });
+//Andreas Romlin sqrt(x)
+describe('Square root Math.sqrt(x) of positive number', function() {
+	it('should return a number on correct input', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/36')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+	it('should return answer on negative input', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/-36')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			done();
+		});
+	});
+	it('should return error on input other than number', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/abc')
+		.end(function(err, res) {
+			res.should.have.status(400);
+			res.should.be.json;
+			res.body.status.should.equal('ERR');
+			res.body.info.should.be.a('string');
+			done();
+		});
+	});
+	it('should replace , with . on input', function(done) {
+		chai.request('http://127.0.0.1:3000')
+				.get('/sqr/3,6')
+				.end(function(err, res) {
+					res.should.have.status(200);
+					res.should.be.json;
+					res.body.status.should.equal('OK');
+					res.body.answer.should.be.a('number');
+					done();
+				});
+	});
+
+});
 		

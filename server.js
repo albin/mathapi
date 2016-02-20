@@ -150,6 +150,22 @@ app.get('/ceil/:x', function (req, res) {
         res.json({Status: 'OK', Result: result})
     }
 });
+//Andreas R
+app.get('/sqr/:a', function(req, res) {
+
+	var x = Math.sqrt(req.params.a.replace("," , "."));
+
+	if(/^-/.test(req.params.a) === true) {
+		var x = req.params.a.replace(/^-/, '');
+		x = Math.sqrt(x);
+		res.json({status: 'OK', answer: x + 'i'});
+	}else if(isNaN(x) === true) {
+		res.status(400);
+		res.json({status: 'ERR', info: 'Input must be a number!'});
+	} else {
+		res.json({status: 'OK', answer: x});
+	}
+});
 
 
 
