@@ -214,8 +214,8 @@ describe('Square root Math.sqrt(x) of positive number', function() {
 	});
 	it('should replace , with . on input', function(done) {
 		chai.request('http://127.0.0.1:3000')
-				.get('/sqr/3,6')
-				.end(function(err, res) {
+		.get('/sqr/3,6')
+		.end(function(err, res) {
 					res.should.have.status(200);
 					res.should.be.json;
 					res.body.status.should.equal('OK');
