@@ -216,11 +216,11 @@ describe('Square root Math.sqrt(x) of positive number', function() {
 		chai.request('http://127.0.0.1:3000')
 		.get('/sqr/3,6')
 		.end(function(err, res) {
-					res.should.have.status(200);
-					res.should.be.json;
-					res.body.status.should.equal('OK');
-					res.body.answer.should.be.a('number');
-					done();
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			res.body.answer.should.be.a('number');
+			done();
 		});
 	});
 
