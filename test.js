@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 This comment will tell you how the test will be constructed.
 Add your test below, you need three test's (it), what they will check on your math object is up to you.
 Follow the structure down below in the commented section, just an example how to test math-min gives a number.
-
+Server port is on 3000
 
 */
 /*
@@ -225,4 +225,69 @@ describe('Square root Math.sqrt(x) of positive number', function() {
 	});
 
 });
+
+// Jarl H Lindquist Math.pow(x,y) - test 
+describe('testing to make sure that all test works on pow', function(){
+	
+	it('Should return an object with status OK and resultat : resultat on /pow/1/3', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/pow/1/2')
+		.end(function(err,res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.should.have.property('result');
+			res.body.status.should.equal('OK');
+			res.body.result.should.be.a('number');
+
+			done();
+		})
+	})
+	var number1 = Math.random();
+	var number2 = Math.random();
+	console.log(number1);
+	console.log(number2);
+
+	it('Should return an object with status OK and resultat : resultat on /pow/randomNumber/randomNumber', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/pow/' + number1 + '/' + number2)
+		.end(function(err,res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.should.have.property('result');
+			res.body.status.should.equal('OK');
+			res.body.result.should.be.a('number');
+
+			done();
+		})
+	})
+	it('Should return an object with status Err on /pow/b/4', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/pow/b/3')
+		.end(function(err,res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			
+			res.body.status.should.equal('Err');
+		
+			done();
+		})
+	})
+
+	it('Trying for an page that is not existing', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/noneexistingpagethatisnotavailable/' )
+		.end(function(err,res){
+			res.should.have.status(404);
+			
+
+			done();
+		})
+	})
+})
 		
