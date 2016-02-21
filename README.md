@@ -5,10 +5,10 @@
 camelCase for identifier names (variables and functions).
 format for brackets is (){}  
 For more info see comenteded section in server.js file  
-camelCase for identifier names (variables and functions).
-format for brackets is (){}
-For more info see comenteded section in server.js file
-We are using port 3000 on the server  Dont forget it when you doing your tests.
+camelCase for identifier names (variables and functions).  
+format for brackets is (){}  
+For more info see comenteded section in server.js file  
+We are using port 3000 on the server.  Dont forget it when you doing your tests.
 
 
 
