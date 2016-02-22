@@ -167,6 +167,20 @@ app.get('/sqr/:a', function(req, res) {
 	}
 });
 
+app.get('/radie/:x', function(req, res){  // Patricios funktion
+
+	var area = parseFloat(req.params.x);
+	var radie = Math.sqrt(area / Math.PI);
+
+	if (isNaN(radie) === true) {
+
+		res.json({status: "ERROR", messege: "Parameter is not a number or lower than 0"});
+
+	}
+	else
+		res.json({status: "OK", result: radie});
+
+});
 
 
 //Dont add anything below this line.
