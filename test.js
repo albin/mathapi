@@ -280,9 +280,6 @@ describe('testing to make sure that all test works on pow', function(){
 	})
 })
 
-
-
-
 // Patricios Test här nere
 describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
@@ -352,19 +349,6 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 	});
 
-
-});		
-
-
-// Sara Test här nere
-describe('test av divide x och y och multiply med z', function(){
-
-	it('should responde with a number', function (done){
-
-		
-
-		chai.request('http://127.0.0.1:3000').get('/calculon/3/10/6').end(function(err, res){
-
 });	
 
 describe("Circumference of circle by radius", function(){
@@ -391,68 +375,9 @@ describe('Math MAX by Alexander W', function() {
 		.get('/max/10/100/')
 		.end(function(err, res) {
 
-
 			res.should.have.status(200);
 
 			res.should.be.json;
-
-
-			res.body.should.be.an('object');
-
-		
-			res.body.svar.should.equal(5);
-			res.body.svar.should.be.a('number');
-
-			done();
-
-		});
-
-	});
-
-	it('should not work if one variable isNaN', function (done){
-
-
-		chai.request('http://127.0.0.1:3000').get('/calculon/4/2/ha').end(function(err, res){
-
-			res.should.have.status(404);
-
-			res.should.be.json;
-
-			res.body.should.be.an('object');
-
-			res.body.status.should.equal('error');
-
-			res.body.status.should.be.a('string');
-
-			done();
-
-		});
-
-	});
-
-	it('should work and result in a number', function (done){
-
-		
-
-		chai.request('http://127.0.0.1:3000').get('/calculon/-2/6/-4').end(function(err, res){
-
-			res.should.have.status(200);
-
-			res.should.be.json;
-
-			res.body.should.be.an('object');
-
-			res.body.svar.should.equal(3);
-
-			res.body.svar.should.be.a('number');
-
-			done();
-
-		});
-
-	});
-
-});		
 
 			res.should.be.number;
 			
@@ -539,69 +464,8 @@ describe('Math Tan', function() {
 	});
 });
 
-	
-// Monas Test 
-describe('Test of Multiply the two number and division on other number', function(){
 
-	it('should responde with a number', function (done){
-
-		chai.request('http://127.0.0.1:3000').get('/calculon/5/3/3' ).end(function(err, res){
-
-			res.should.have.status(200);
-
-			res.should.be.json;
-
-			res.body.should.be.an('object');
-
-			res.body.svar.should.be.a('number');
-
-			done();
-
-		});
-
-	});
-
-	it('should not work if one variable isNaN', function (done){
-
-		var minString = "String";
-
-		chai.request('http://127.0.0.1:3000').get('/calculon/4/2/a').end(function(err, res){
-
-			res.should.have.status(404);
-
-			res.should.be.json;
-
-			res.body.should.be.an('object');
-
-			res.body.status.should.equal('ERR');
-
-			res.body.status.should.be.a('string');
-
-			done();
-
-		});
-
-	});
-
-
-	it('should work and result in a number', function (done){
-
-		chai.request('http://127.0.0.1:3000').get('/calculon/-2/6/-4').end(function(err, res){
-
-			res.should.have.status(200);
-
-			res.should.be.json;
-
-			res.body.should.be.an('object');
-
-			res.body.svar.should.equal(3);
-
-			done();
-
-		});
-
-	});
-});
+		
 
 //Math Round, Nadim.
 describe('returns the value of a number rounded to the nearest integer.', function() {
@@ -639,5 +503,4 @@ describe('returns the value of a number rounded to the nearest integer.', functi
 
 });
 
-
-
+	
