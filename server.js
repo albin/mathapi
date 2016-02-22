@@ -201,6 +201,25 @@ app.get('/circumference/:radius', function(req, res){
 	}
 });
 
+//Alexander W
+app.get('/max/:x/:y', function(req, res) {
+ 
+	var x = parseFloat(req.params.x);
+	var y = parseFloat(req.params.y);   
+  	
+    if(isNaN(x)===true || isNaN(y)===true) {
+	
+        res.json({Status: 'ERROR'});
+    
+    }else{
+	
+        var result = Math.max(x, y);
+		
+        res.json({Status: 'OK', Result: result})
+		
+    }
+});
+
 
 //Dont add anything below this line.
 app.use(express.static("public"));
