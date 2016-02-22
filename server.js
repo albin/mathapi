@@ -25,7 +25,7 @@ app.get('/volume/:type/*', function(req, res) {
 
 	var url = (req.url).split('/');
 	var ans;
-	console.log(url);
+	//console.log(url);
 
 	switch(req.params.type) {
 		case "cyl":
@@ -352,6 +352,69 @@ app.get('/flo/:numberToFloor', function (req, res) {
         res.json({ status: 'OK', result: myInput })
     }
 });
+
+
+
+// Aleksandar C Math.fro
+
+app.get('/fro/:x', function (req, res) {
+
+	var x = parseFloat(req.params.x);
+	var svar = Math.fround(x);
+
+
+	if (isNaN(x)!== false || x === undefined || x === null) {
+		res.status(404);
+		res.json({status:"ERR"});
+	}
+	else
+	{
+		res.status(200);
+		res.json({status:svar});
+		
+	}
+
+});
+
+
+
+
+app.get('/acos/:x', function (req,res){
+
+	var nummer = parseFloat(req.params.x);
+	var svar = Math.acos(nummer);
+
+	if(nummer === "" || nummer === undefined || nummer === null)
+	{	res.status(404);
+		res.json({status:'ERR'});
+	}
+	else
+	{
+		res.status(200);
+		res.json({status:svar});
+	}
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Dont add anything below this line.
 app.use(express.static("public"));

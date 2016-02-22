@@ -564,3 +564,86 @@ describe('Returns the largest integer less than or equal to a given number', fun
   
 });
 	
+
+
+//Aleksandar C - Math.fro()
+describe('Math.fro() - by Aleksandar C', function(){
+	it('should return status 404 on /fro/NotWorking/', function(done)
+	{
+		chai.request('http://127.0.0.1:3000').get('/fro/NotWorking').end(function (err,res){
+			
+			res.should.have.status(404);
+			res.body.status.should.equal('ERR');
+			res.should.be.json;
+			done();
+		});
+	});	
+
+	it('should return status 200 on /fro/1.2345', function(done) 
+	{
+		chai.request('http://127.0.0.1:3000').get('/fro/1.2345').end(function (err,res){
+
+			res.should.be.json;
+			res.should.have.status(200);
+			res.body.should.be.string;
+			res.body.should.be.number;
+			res.body.should.have.status(1.2345000505447388);
+			done();
+		});
+	});
+
+	it('should return the nearest single precision float number on /fro/9.87', function(done) 
+	{
+		chai.request('http://127.0.0.1:3000').get('/fro/9.87').end(function (err,res){
+
+			res.should.be.json;
+			res.should.have.status(200);
+			res.body.status.should.equal(9.869999885559082);
+			done();
+			console.log("         Float Precision Number of 9,87 is : [ " + '\x1b[36m' + res.body.status + '\x1b[0m ]\n\n' );
+		});
+	});
+});
+
+
+
+
+
+//Aleksandar C - Math.acos()
+describe('Math.acos() - by Aleksandar C', function(){
+	it('should return status 404 on /acos/', function(done)
+	{
+		chai.request('http://127.0.0.1:3000').get('/acos/').end(function (err,res){
+
+			res.should.have.status(404);
+			done();
+		});
+	});
+
+	it('should return status 200 on /acos/0', function(done){
+
+		chai.request('http://127.0.0.1:3000').get('/acos/0').end(function (err, res){
+
+			res.should.be.json;
+			res.should.have.status(200);
+			res.body.should.be.a.number;
+			done();
+		});
+	});
+
+	it('should return the arccosine (in radians) of a number between 1 & -1', function(done){
+
+		chai.request('http://127.0.0.1:3000').get('/acos/-1').end(function (err, res){
+
+			res.should.be.json;
+			res.should.have.status(200);
+			res.body.should.be.a.number;
+			res.body.status.should.equal(3.141592653589793);
+			done();
+
+			console.log("         -1 has Arccosine value of : [ " + '\x1b[36m' + res.body.status + '\x1b[0m ]');
+
+		});
+	});
+});
+
