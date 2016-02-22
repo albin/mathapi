@@ -367,23 +367,61 @@ describe("Circumference of circle by radius", function(){
 	});
 });	
 
+
+//Alexander W
 describe('Math MAX by Alexander W', function() {
 	it('Should return the highest number of two given numbers /max/<nr1>/<nr2> GET', function(done) {
-	
-		chai.request('http://127.0.0.1:3000').get('/max/x/y/').end(function(err, res) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/max/10/100/')
+		.end(function(err, res) {
 
 			res.should.have.status(200);
 
 			res.should.be.json;
 
-			res.body.should.be.number;
+			res.should.be.number;
 			
 			res.body.should.be.an('object');
+			
+			res.body.should.have.property('status');
+			
+			res.body.status.should.equal('OK');
+
+			done();
+		});
+	});
+		it('Should return an ERROR for not being a number', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/max/a/2/')
+		.end(function(err, res) {
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.should.be.number;
+			
+			res.body.should.be.an('object');
+			
+			res.body.should.have.property('status');
+			
+			res.body.status.should.equal('ERROR');
+
+			done();
+		});
+	});
+		it('Testing for a page that does not exist', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/max/x/y/z')
+		.end(function(err, res) {
+
+			res.should.have.status(404);
 
 			done();
 		});
 	});
 });
+
 
 //Jason Math Tan
 describe('Math Tan', function() {
