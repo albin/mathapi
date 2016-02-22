@@ -219,6 +219,66 @@ app.get("/calculon/:x/:y/:z", function(req, res){
 	}
 });
 
+//Jason Math Tan
+
+app.get('/tan/:number', function (req,res) {
+	
+  var number = parseFloat(req.params.number);
+ 
+  var resultat = Math.tan(number);
+ 
+  if(isNaN(resultat)){
+  	res.json({ status: "Err"});
+  }
+ 
+  else{
+  	res.json({
+
+  	status : "OK",
+  	resultat : resultat
+  });
+  }
+
+});
+
+
+//Alexander W
+app.get('/max/:x/:y', function(req, res) {
+ 
+	var x = parseFloat(req.params.x);
+	var y = parseFloat(req.params.y);   
+  	
+    if(isNaN(x) || isNaN(y)) {
+	
+        res.json({status: 'ERROR'});
+    
+    }else{
+	
+        var result = Math.max(x, y);
+		
+        res.json({status: 'OK', result: result});
+		
+    }
+});
+
+
+//Nadim math-round
+app.get('/round/:x', function (req, res){
+ 
+ x = parseFloat(req.params.x.replace(",","."));
+ //y = parseFloat(req.params.y.replace(".",".");     	
+    if(isNaN(x)===true){
+        res.json({status: 'ERR'});
+    
+    }else{
+        var result = Math.round (x);
+        res.json({status: 'OK', result: result})
+    }
+});
+
+
+
+
 //Dont add anything below this line.
 app.use(express.static("public"));
 app.use('/', router);
