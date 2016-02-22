@@ -125,9 +125,13 @@ radie = √ ( area / π )
 
 /radie/:area
 
-## /volume/shape/1/2/3
-Calculate the volume for the geometric figures: cylinder, box, sphere
-and then the metrics for the figure: height/length/width
+## /volume/shape/1/2/3 - Olle
+Calculate the volume for the geometric figures: cylinder, box, sphere and cone
+and then the metrics for the figure: 
+cylinder: cyl/radius/height
+box: box/height/length/width
+sphere: sphere/radius/
+cone: cone/radius/height
 
 
 ## /eucl/p/q

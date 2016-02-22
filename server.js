@@ -20,6 +20,7 @@ Float numbers seperated by ".", example /pow/1.5/2.5
 Example down below, how marcus made his get on math.min.
 */
 
+//Olle
 app.get('/volume/:type/*', function(req, res) {
 
 	var url = (req.url).split('/');
@@ -30,52 +31,57 @@ app.get('/volume/:type/*', function(req, res) {
 		case "cyl":
 			if(isNaN(url[3]) || url[3] === "" || isNaN(url[4]) || url[4] === "" || url[4] <= 0) {
 				ans = "Metrics must be defined or a positive number. Input should be: cyl/radius/height";
+				res.status(500);
 				res.json({ status: "ERR", info: ans });
 				break;
 			}
 			else {
-			ans = Math.PI * Math.pow(url[3], 2) * url[4];
-			res.json({ status: "OK", answer: ans });
-		// V = pi * r^2*h
-			break;
+				ans = Math.PI * Math.pow(url[3], 2) * url[4];
+				res.json({ status: "OK", answer: ans });
+				// V = pi * r^2*h
+				break;
 			}
 		case "sphere": 
 			if(isNaN(url[3]) || url[3] === "" || url[3] <= 0) {
 				ans = "Metrics must be defined or a positive number. Input should be: sphere/radius";
+				res.status(500);
 				res.json({ status: "ERR", info: ans });
 				break;
 			}
 			else{
-			ans = (4 * Math.PI * Math.pow(url[3], 3))/3;
-			res.json({ status: "OK", answer: ans });
-			break;
+				ans = (4 * Math.PI * Math.pow(url[3], 3))/3;
+				res.json({ status: "OK", answer: ans });
+				break;
 			}
 		case "box": 
 			if(isNaN(url[3]) || url[3] === "" || url[3] <= 0 || isNaN(url[4]) || url[4] === "" ||
 			url[4] <= 0 || isNaN(url[5]) || url[5] === "" || url[5] <= 0) {
 				ans = "Metrics must be defined or a positive number. Input should be: box/width/height/depth";
+				res.status(500);
 				res.json({ status: "ERR", info: ans });
 				break;
 			}
 			else {
-			ans = url[3] * url[4] * url[5];
-			res.json({ status: "OK", answer: ans });
-			break;
+				ans = url[3] * url[4] * url[5];
+				res.json({ status: "OK", answer: ans });
+				break;
 			}
 		case "cone":
 			if(isNaN(url[3]) || url[3] === "" || isNaN(url[4]) || url[4] === "" || url[4] <= 0) {
 				ans = "Metrics must be defined or a positive number. Input should be: cone/radius/height";
+				res.status(500);
 				res.json({ status: "ERR", info: ans });
 				break;
 			}
 			else {
-			ans = (1/3) * Math.PI * Math.pow(url[3], 2) * url[4];
-			res.json({ status: "OK", answer:ans });
-			break;
+				ans = (1/3) * Math.PI * Math.pow(url[3], 2) * url[4];
+				res.json({ status: "OK", answer: ans });
+				break;
 			}
 		default:
-			ans = "Unvalid figure, please enter one of the following geometrical figures: cyl for cylinder, sphere, box or cone!"
-			res.json({ status: "ERR", info: ans });
+				ans = "Unvalid figure, please enter one of the following geometrical figures: cyl for cylinder, sphere, box or cone!"
+				res.status(404);
+				res.json({ status: "ERR", info: ans });
 	}
 });
 

@@ -150,7 +150,6 @@ describe('GET volume for a box', function() {
 		chai.request('http://localhost:3000').get('/volume/cyl/3.5/5.5/6.2').end(function(err, res) {
 			res.should.have.status('200');
 			res.should.be.json;
-			
 			res.body.status.should.equal('OK');
 			res.body.should.have.property('answer');
 			res.body.answer.should.be.a('number');
@@ -159,7 +158,7 @@ describe('GET volume for a box', function() {
 	});
 	it('Should respond with ERR if any metric is a negative number', function(done) {
 		chai.request('http://localhost:3000').get('/volume/cone/1/-5/6').end(function(err, res) {
-			res.should.have.status('200');
+			res.should.have.status('500');
 			res.should.be.json;
 			res.body.should.be.an('object');
 			res.body.should.have.property('status');
@@ -169,7 +168,7 @@ describe('GET volume for a box', function() {
 	});
 	it('Should respond ERR if any metric is NaN', function(done) {
 		chai.request('http://localhost:3000').get('/volume/sphere/abs').end(function(err, res) {
-			res.should.have.status('200');
+			res.should.have.status('500');
 			res.should.be.json;
 			res.body.should.be.an('object');
 			res.body.should.have.property('status');
