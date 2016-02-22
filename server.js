@@ -294,6 +294,64 @@ app.get('/round/:x', function (req, res){
     }
 });
 
+//Anders
+app.get('/flo/:numberToFloor', function (req, res) {
+    // Add more error checking
+    "use strict";
+    
+    // There is a max limit of digits in this route.
+    // Integers(numbers without a period or exponent notation) are considered accurate up to 15 digits.
+    // For example: Math.floor(1.9999999999999999); does not yield expected floor result ;-)
+    // For example: Math.floor(9999999999999999); does not yield expected floor result ;-)
+    
+    var myErrorMessage = null, // Here we put any error message.
+        providedInput = req.params.numberToFloor, // Keep track of the input
+        maxNumberOfDigits = 15; // This is the max limit for total number of digits in input
+    
+    // Make sure we are working with . and not , when using the Math function
+    var providedInput = providedInput.replace("," , ".");
+    
+    // Check that we got valid user input
+    function validInput(myInput) {
+        
+        // Did we get a number to work with.
+        if (isNaN(myInput) === true) {
+            myErrorMessage = "you have to provide a number";
+            return false;
+        }
+        
+        // Make sure we do not exeed the max limit        
+        // First remove any decimals
+        myInput = myInput.replace('.', '');
+        
+        // Check total length
+        if ((myInput.length > maxNumberOfDigits)) {
+            myErrorMessage = "too many digits the max limit is " + maxNumberOfDigits + " digits";
+            return false;
+        }
+        
+        
+        return true;
+    }
+    
+    // Check if we got valid user input, if not return the error
+    if (validInput(providedInput) === false) {
+        res.status(400).json({ status: 'ERR', info: myErrorMessage });
+    } else { // Yey, valid user input
+        // Floor the value
+        floorTheValue(providedInput);
+    }
+    
+    // Here we return the largest integer less than or equal to a given number
+    function floorTheValue(myInput) {
+        try {
+            myInput = Math.floor(myInput);
+        } catch (e) {
+            res.status(500).json({ status: 'ERR', info: e.message });
+        };
+        res.json({ status: 'OK', result: myInput })
+    }
+});
 
 //Dont add anything below this line.
 app.use(express.static("public"));

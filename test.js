@@ -502,5 +502,65 @@ describe('returns the value of a number rounded to the nearest integer.', functi
 	});
 
 });
-
+//Anders flo(x)
+describe('Returns the largest integer less than or equal to a given number', function () {
+    it('return 13 on 13.96 as input', function (done) {
+        chai.request('http://127.0.0.1:3000')
+		.get('/flo/13.96')
+		.end(function (err, res) {
+            res.should.have.status(200);
+            res.should.be.json;
+            res.body.status.should.equal('OK');
+            res.body.result.should.be.a('number');
+            res.body.result.should.equal(13);
+            done();
+        });
+    });
+    it('return error on more than 15 digits as input with a decimal', function (done) {
+        chai.request('http://127.0.0.1:3000')
+		.get('/flo/123456789101112.1')
+		.end(function (err, res) {
+            res.should.have.status(400);
+            res.should.be.json;
+            res.body.status.should.equal('ERR');
+            res.body.info.should.be.a('string');
+            done();
+        });
+    });
+    it('return error on more than 15 digits as input without a decimal', function (done) {
+        chai.request('http://127.0.0.1:3000')
+		.get('/flo/9999999999999999')
+		.end(function (err, res) {
+            res.should.have.status(400);
+            res.should.be.json;
+            res.body.status.should.equal('ERR');
+            res.body.info.should.be.a('string');
+            done();
+        });
+    });
+    it('return error when input is not a valid number', function (done) {
+        chai.request('http://127.0.0.1:3000')
+		.get('/flo/abcImNotValidNumber123.1')
+		.end(function (err, res) {
+            res.should.have.status(400);
+            res.should.be.json;
+            res.body.status.should.equal('ERR');
+            res.body.info.should.be.a('string');
+            done();
+        });
+    });
+    it('handle , as decimal mark', function (done) {
+        chai.request('http://127.0.0.1:3000')
+		.get('/flo/1,9')
+		.end(function (err, res) {
+            res.should.have.status(200);
+            res.should.be.json;
+            res.body.status.should.equal('OK');
+            res.body.result.should.be.a('number');
+            res.body.result.should.equal(1);
+            done();
+        });
+    });
+  
+});
 	
