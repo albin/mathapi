@@ -182,11 +182,22 @@ app.get('/radie/:x', function(req, res){  // Patricios funktion
 
 });
 
+//omkretesn på en cirkel (uträknad med hjälp av radien), av Martin Nilsson
+app.get('/circumference/:radius', function(req, res){
+	
+	var radius = parseFloat(req.params.radius),
+		circumference = (2*Math.PI)*radius;
+
+	if(radius !== null && radius !== undefined && radius !== NaN && radius !== 0 && radius > 0){
+		res.json({status: 'OK', answer: circumference});
+	} else{
+		res.json({status: "error"});
+	}
+});
+
 
 //Dont add anything below this line.
 app.use(express.static("public"));
 app.use('/', router);
 app.listen(port);
 console.log('Up and runing at port' + port);
-
-
