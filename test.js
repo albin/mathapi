@@ -8,38 +8,28 @@ This comment will tell you how the test will be constructed.
 Add your test below, you need three test's (it), what they will check on your math object is up to you.
 Follow the structure down below in the commented section, just an example how to test math-min gives a number.
 Server port is on 3000
-
 */
 /*
-
 //Marcus W
 var number1 = 1;
 var number2 = 2;
 var result = number1 + number1;
-
 it('should show if result equals number, when adding', function(done){
 		chai.request('http://127.0.0.1:3000').get('/min/' + number1 + '/' + number2).end(function(err, res){
-
 			res.should.have.status(200);
-
 			res.should.be.json;
-
 			res.body.result.should.be.an('number');
-
 			done();
 		});
 	});
-
 //End
 */
 /*Add your describe here, dont forget that you need 3 it(). Here is a template:
-
 describe('Function name', function(){
 	it();
 	it();
 	it();
 });
-
 */
 
 describe("Pythagora's Theorem' by Derek", function(){
@@ -297,7 +287,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 		var num1 = Math.round((Math.random() * 10) + 1);
 
-		chai.request('http://127.0.0.1:4000').get('/radie/' + num1).end(function(err, res){
+		chai.request('http://127.0.0.1:3000').get('/radie/' + num1).end(function(err, res){
 
 			res.should.have.status(200);
 
@@ -319,7 +309,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 		var minString = "String";
 
-		chai.request('http://127.0.0.1:4000').get('/radie/' + minString).end(function(err, res){
+		chai.request('http://127.0.0.1:3000').get('/radie/' + minString).end(function(err, res){
 
 			res.should.have.status(200);
 
@@ -341,7 +331,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 		var negativeNum = (Math.round((Math.random() * 10) + 1)) * -1;
 
-		chai.request('http://127.0.0.1:4000').get('/radie/' + negativeNum).end(function(err, res){
+		chai.request('http://127.0.0.1:3000').get('/radie/' + negativeNum).end(function(err, res){
 
 			res.should.have.status(200);
 
@@ -359,4 +349,182 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 	});
 
-});		
+});	
+
+describe("Circumference of circle by radius", function(){
+	it('should return an object with status OK and circumference on GET: /circumference/radius', function (done){
+		chai.request('http://127.0.0.1:3000').get('/circumference/10').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+});	
+
+
+//Alexander W
+describe('Math MAX by Alexander W', function() {
+	it('Should return the highest number of two given numbers /max/<nr1>/<nr2> GET', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/max/10/100/')
+		.end(function(err, res) {
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.should.be.number;
+			
+			res.body.should.be.an('object');
+			
+			res.body.should.have.property('status');
+			
+			res.body.status.should.equal('OK');
+
+			done();
+		});
+	});
+		it('Should return an ERROR for not being a number', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/max/a/2/')
+		.end(function(err, res) {
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.should.be.number;
+			
+			res.body.should.be.an('object');
+			
+			res.body.should.have.property('status');
+			
+			res.body.status.should.equal('ERROR');
+
+			done();
+		});
+	});
+		it('Testing for a page that does not exist', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/max/x/y/z')
+		.end(function(err, res) {
+
+			res.should.have.status(404);
+
+			done();
+		});
+	});
+});
+
+
+//Jason Math Tan
+describe('Math Tan', function() {
+	it('should load the resultat of Math.tan: with status OK  /tan GET' , function(done) { // <- done is a function passed by chai that we call when we've made sure everything works
+		chai.request('http://127.0.0.1:3000')
+		.get('/tan/1' )
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('OK');
+
+			done();
+		});
+	});
+
+	it('should load the resultat of Math.tan:a with status Error  /tan GET' , function(done) { // <- done is a function passed by chai that we call when we've made sure everything works
+		chai.request('http://127.0.0.1:3000')
+		.get('/tan/a' )
+		.end(function(err, res) {
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('Err');
+			res.body.should.have.property('status');
+			done();
+		});
+	});
+	it('should return negative input: with status OK  /tan GET' , function(done) { // <- done is a function passed by chai that we call when we've made sure everything works
+		chai.request('http://127.0.0.1:3000')
+		.get('/tan/-10' )
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('OK');
+
+			done();
+		});
+	});
+});
+	
+
+
+// Monas Test 
+describe('Test of Multiply the two number and division on other number', function(){
+
+	it('should responde with a number', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/calculon/5/3/3' ).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.svar.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if one variable isNaN', function (done){
+
+		var minString = "String";
+
+		chai.request('http://127.0.0.1:3000').get('/calculon/4/2/a').end(function(err, res){
+
+			res.should.have.status(404);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERR');
+
+			res.body.status.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+
+	it('should work and result in a number', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/calculon/-2/6/-4').end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.svar.should.equal(3);
+
+			done();
+
+		});
+
+	});
+});

@@ -202,6 +202,65 @@ app.get('/circumference/:radius', function(req, res){
 });
 
 
+//Jason Math Tan
+
+app.get('/tan/:number', function (req,res) {
+	
+  var number = parseFloat(req.params.number);
+ 
+  var resultat = Math.tan(number);
+ 
+  if(isNaN(resultat)){
+  	res.json({ status: "Err"});
+  }
+ 
+  else{
+  	res.json({
+
+  	status : "OK",
+  	resultat : resultat
+  });
+  }
+
+});
+
+
+//Alexander W
+app.get('/max/:x/:y', function(req, res) {
+ 
+	var x = parseFloat(req.params.x);
+	var y = parseFloat(req.params.y);   
+  	
+    if(isNaN(x) || isNaN(y)) {
+	
+        res.json({status: 'ERROR'});
+    
+    }else{
+	
+        var result = Math.max(x, y);
+		
+        res.json({status: 'OK', result: result});
+		
+    }
+});
+
+app.get('/calculon/:x/:y/:z', function(req, res){
+	var x= req.params.x;
+	var y= req.params.y;
+	var z= req.params.z;
+
+	if(isNaN(parseInt(x)) != false || isNaN(parseInt(y)) != false || isNaN(parseInt(z)) != false){
+       res.status(404);
+       res.json({status : 'ERR'});
+	}
+    else{
+       var svar =(x*y)/z;
+       res.status(200);
+       res.json({svar: svar});
+       //res.send('<h1>' + svar +'</h1>');
+    }
+})
+
 //Dont add anything below this line.
 app.use(express.static("public"));
 app.use('/', router);
