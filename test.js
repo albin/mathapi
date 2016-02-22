@@ -376,3 +376,21 @@ describe("Circumference of circle by radius", function(){
 		});
 	});
 });	
+
+describe('Math MAX by Alexander W', function() {
+	it('Should return the highest number of two given numbers /max/<nr1>/<nr2> GET', function(done) {
+	
+		chai.request('http://127.0.0.1:3000').get('/max/x/y/').end(function(err, res) {
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.number;
+			
+			res.body.should.be.an('object');
+
+			done();
+		});
+	});
+});
