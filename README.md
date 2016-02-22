@@ -151,3 +151,10 @@ Manhattan distance - The distance between two points measured along axes at righ
 ```
 /manh/0.0/10.10
 ```
+
+## /circumference/radien
+Calculate the curcumfence of the circle - Martin 
+
+```
+/circumference/4
+````
