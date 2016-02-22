@@ -245,6 +245,23 @@ app.get('/max/:x/:y', function(req, res) {
 });
 
 
+//Nadim math-round
+app.get('/round/:x', function (req, res){
+ 
+ x = parseFloat(req.params.x.replace(",","."));
+ //y = parseFloat(req.params.y.replace(".",".");     	
+    if(isNaN(x)===true){
+        res.json({status: 'ERR'});
+    
+    }else{
+        var result = Math.round (x);
+        res.json({status: 'OK', result: result})
+    }
+});
+
+
+
+
 //Dont add anything below this line.
 app.use(express.static("public"));
 app.use('/', router);
