@@ -8,38 +8,28 @@ This comment will tell you how the test will be constructed.
 Add your test below, you need three test's (it), what they will check on your math object is up to you.
 Follow the structure down below in the commented section, just an example how to test math-min gives a number.
 Server port is on 3000
-
 */
 /*
-
 //Marcus W
 var number1 = 1;
 var number2 = 2;
 var result = number1 + number1;
-
 it('should show if result equals number, when adding', function(done){
 		chai.request('http://127.0.0.1:3000').get('/min/' + number1 + '/' + number2).end(function(err, res){
-
 			res.should.have.status(200);
-
 			res.should.be.json;
-
 			res.body.result.should.be.an('number');
-
 			done();
 		});
 	});
-
 //End
 */
 /*Add your describe here, dont forget that you need 3 it(). Here is a template:
-
 describe('Function name', function(){
 	it();
 	it();
 	it();
 });
-
 */
 
 describe("Pythagora's Theorem' by Derek", function(){
@@ -359,6 +349,41 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 	});
 
+});	
+
+describe("Circumference of circle by radius", function(){
+	it('should return an object with status OK and circumference on GET: /circumference/radius', function (done){
+		chai.request('http://127.0.0.1:3000').get('/circumference/10').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+});	
+
+describe('Math MAX by Alexander W', function() {
+	it('Should return the highest number of two given numbers /max/<nr1>/<nr2> GET', function(done) {
+	
+		chai.request('http://127.0.0.1:3000').get('/max/x/y/').end(function(err, res) {
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.number;
+			
+			res.body.should.be.an('object');
+
+			done();
+		});
+	});
+});
 
 //Jason Math Tan
 describe('Math Tan', function() {
@@ -402,24 +427,8 @@ describe('Math Tan', function() {
 	});
 });
 
-describe("Circumference of circle by radius", function(){
-	it('should return an object with status OK and circumference on GET: /circumference/radius', function (done){
-		chai.request('http://127.0.0.1:3000').get('/circumference/10').end(function (err, res){
 
-			res.should.have.status(200);
-			res.should.be.json;
-			res.body.should.be.an('object');
-			res.body.should.have.property('status');
-
-			res.body.status.should.equal('Err')
-
-			done();
-		});
-	});
 		
-});
 
 	
-
-
 
