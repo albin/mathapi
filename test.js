@@ -359,4 +359,53 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 	});
 
+//Jason Math Tan
+describe('Math Tan', function() {
+	it('should load the resultat of Math.tan: with status OK  /tan GET' , function(done) { // <- done is a function passed by chai that we call when we've made sure everything works
+		chai.request('http://127.0.0.1:3000')
+		.get('/tan/1' )
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('OK');
+
+			done();
+		});
+	});
+
+	it('should load the resultat of Math.tan:a with status Error  /tan GET' , function(done) { // <- done is a function passed by chai that we call when we've made sure everything works
+		chai.request('http://127.0.0.1:3000')
+		.get('/tan/a' )
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('Err')
+
+			done();
+		});
+	});
+		
+	it('should return negative input: with status OK  /tan GET' , function(done) { // <- done is a function passed by chai that we call when we've made sure everything works
+		chai.request('http://127.0.0.1:3000')
+		.get('/tan/-10' )
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.equal('OK');
+
+			done();
+		});
+	});
+});
+
+	
+
+
+
 });		

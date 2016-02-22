@@ -201,6 +201,27 @@ app.get('/circumference/:radius', function(req, res){
 	}
 });
 
+//Jason Math Tan
+
+app.get('/tan/:number', function (req,res) {
+	
+  var number = parseFloat(req.params.number);
+ 
+  var resultat = Math.tan(number);
+ 
+  if(isNaN(resultat)){
+  	res.json({ status: "Err"});
+  }
+ 
+  else{
+  	res.json({
+
+  	status : "OK",
+  	resultat : resultat
+  });
+  }
+
+});
 
 //Dont add anything below this line.
 app.use(express.static("public"));
