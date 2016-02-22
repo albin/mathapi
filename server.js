@@ -224,25 +224,25 @@ app.get('/tan/:number', function (req,res) {
 
 });
 
+
 //Alexander W
 app.get('/max/:x/:y', function(req, res) {
  
 	var x = parseFloat(req.params.x);
 	var y = parseFloat(req.params.y);   
   	
-    if(isNaN(x)===true || isNaN(y)===true) {
+    if(isNaN(x) || isNaN(y)) {
 	
-        res.json({Status: 'ERROR'});
+        res.json({status: 'ERROR'});
     
     }else{
 	
         var result = Math.max(x, y);
 		
-        res.json({Status: 'OK', Result: result})
+        res.json({status: 'OK', result: result});
 		
     }
 });
-
 
 
 //Dont add anything below this line.
