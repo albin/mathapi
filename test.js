@@ -290,4 +290,74 @@ describe('testing to make sure that all test works on pow', function(){
 		})
 	})
 })
-		
+
+// Patricios Test här nere
+describe('Test of Radius of a circle, by Patricio Vergara', function(){
+
+	it('should work if the user gives a positive number with GET /radie/:x', function (done){
+
+		var num1 = Math.round((Math.random() * 10) + 1);
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + num1).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('OK');
+
+			res.body.result.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if the user gives a string with GET /radie/:x', function (done){
+
+		var minString = "String";
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + minString).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERROR');
+
+			res.body.messege.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if the user gives a negative number with GET /radie/:x', function (done){
+
+		var negativeNum = (Math.round((Math.random() * 10) + 1)) * -1;
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + negativeNum).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERROR');
+
+			res.body.messege.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+});		
