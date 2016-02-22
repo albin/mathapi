@@ -5,9 +5,10 @@
 camelCase for identifier names (variables and functions).
 format for brackets is (){}  
 For more info see comenteded section in server.js file  
-camelCase for identifier names (variables and functions).
-####format for brackets is (){}
-####For more info see comenteded section in server.js file
+camelCase for identifier names (variables and functions).  
+format for brackets is (){}  
+For more info see comenteded section in server.js file  
+We are using port 3000 on the server.  Dont forget it when you doing your tests.
 
 
 
@@ -55,13 +56,13 @@ Log, returns the natural logarithm (base e) of a number - Faj
 ```
 
 ## /sin/1
-Sin, returns the sine of a number - free  
+Sin, returns the sine of a number - Sebastian  
 ```
 /sin/x  
 ```
 
 ## /cbr/1
-Cbrt, returns the cube root of a number - free  
+Cbrt, returns the cube root of a number - Tobias J  
 ```
 /cbr/x  
 ```
@@ -85,7 +86,7 @@ Fround, returns the nearest single precision float representation of a number - 
 ```
 
 ## /cei/0.95
-Ceil,  returns the smallest integer greater than or equal to a given number - free  
+Ceil,  returns the smallest integer greater than or equal to a given number - Mayra
 ```
 /cei/x  
 ```  
@@ -132,6 +133,7 @@ cylinder: cyl/radius/height
 box: box/height/length/width
 sphere: sphere/radius/
 cone: cone/radius/height
+
 
 
 ## /eucl/p/q

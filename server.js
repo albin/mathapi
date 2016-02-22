@@ -156,7 +156,37 @@ app.get('/ceil/:x', function (req, res) {
         res.json({Status: 'OK', Result: result})
     }
 });
+//Andreas R
+app.get('/sqr/:a', function(req, res) {
 
+	var x = Math.sqrt(req.params.a.replace("," , "."));
+
+	if(/^-/.test(req.params.a) === true) {
+		var x = req.params.a.replace(/^-/, '');
+		x = Math.sqrt(x);
+		res.json({status: 'OK', answer: x + 'i'});
+	}else if(isNaN(x) === true) {
+		res.status(400);
+		res.json({status: 'ERR', info: 'Input must be a number!'});
+	} else {
+		res.json({status: 'OK', answer: x});
+	}
+});
+
+app.get('/radie/:x', function(req, res){  // Patricios funktion
+
+	var area = parseFloat(req.params.x);
+	var radie = Math.sqrt(area / Math.PI);
+
+	if (isNaN(radie) === true) {
+
+		res.json({status: "ERROR", messege: "Parameter is not a number or lower than 0"});
+
+	}
+	else
+		res.json({status: "OK", result: radie});
+
+});
 
 
 //Dont add anything below this line.

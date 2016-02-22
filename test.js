@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 This comment will tell you how the test will be constructed.
 Add your test below, you need three test's (it), what they will check on your math object is up to you.
 Follow the structure down below in the commented section, just an example how to test math-min gives a number.
-
+Server port is on 3000
 
 */
 /*
@@ -177,4 +177,186 @@ describe('GET volume for a box', function() {
 		});
 	});
 });
+//Andreas Romlin sqrt(x)
+describe('Square root Math.sqrt(x) of positive number', function() {
+	it('should return a number on correct input', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/36')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+	it('should return answer on negative input', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/-36')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			done();
+		});
+	});
+	it('should return error on input other than number', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/abc')
+		.end(function(err, res) {
+			res.should.have.status(400);
+			res.should.be.json;
+			res.body.status.should.equal('ERR');
+			res.body.info.should.be.a('string');
+			done();
+		});
+	});
+	it('should replace , with . on input', function(done) {
+		chai.request('http://127.0.0.1:3000')
+		.get('/sqr/3,6')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+
+});
+
+// Jarl H Lindquist Math.pow(x,y) - test 
+describe('testing to make sure that all test works on pow', function(){
+	
+	it('Should return an object with status OK and resultat : resultat on /pow/1/3', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/pow/1/2')
+		.end(function(err,res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.should.have.property('result');
+			res.body.status.should.equal('OK');
+			res.body.result.should.be.a('number');
+
+			done();
+		})
+	})
+	var number1 = Math.random();
+	var number2 = Math.random();
+	console.log(number1);
+	console.log(number2);
+
+	it('Should return an object with status OK and resultat : resultat on /pow/randomNumber/randomNumber', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/pow/' + number1 + '/' + number2)
+		.end(function(err,res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.should.have.property('result');
+			res.body.status.should.equal('OK');
+			res.body.result.should.be.a('number');
+
+			done();
+		})
+	})
+	it('Should return an object with status Err on /pow/b/4', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/pow/b/3')
+		.end(function(err,res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			
+			res.body.status.should.equal('Err');
 		
+			done();
+		})
+	})
+
+	it('Trying for an page that is not existing', function(done){
+		chai.request('http://127.0.0.1:3000')
+		.get('/noneexistingpagethatisnotavailable/' )
+		.end(function(err,res){
+			res.should.have.status(404);
+			
+
+			done();
+		})
+	})
+})
+
+// Patricios Test här nere
+describe('Test of Radius of a circle, by Patricio Vergara', function(){
+
+	it('should work if the user gives a positive number with GET /radie/:x', function (done){
+
+		var num1 = Math.round((Math.random() * 10) + 1);
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + num1).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('OK');
+
+			res.body.result.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if the user gives a string with GET /radie/:x', function (done){
+
+		var minString = "String";
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + minString).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERROR');
+
+			res.body.messege.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if the user gives a negative number with GET /radie/:x', function (done){
+
+		var negativeNum = (Math.round((Math.random() * 10) + 1)) * -1;
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + negativeNum).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERROR');
+
+			res.body.messege.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+});		
