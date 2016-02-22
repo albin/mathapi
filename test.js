@@ -150,7 +150,6 @@ describe('GET volume for a box', function() {
 		chai.request('http://localhost:3000').get('/volume/cyl/3.5/5.5/6.2').end(function(err, res) {
 			res.should.have.status('200');
 			res.should.be.json;
-			
 			res.body.status.should.equal('OK');
 			res.body.should.have.property('answer');
 			res.body.answer.should.be.a('number');
@@ -159,7 +158,7 @@ describe('GET volume for a box', function() {
 	});
 	it('Should respond with ERR if any metric is a negative number', function(done) {
 		chai.request('http://localhost:3000').get('/volume/cone/1/-5/6').end(function(err, res) {
-			res.should.have.status('200');
+			res.should.have.status('500');
 			res.should.be.json;
 			res.body.should.be.an('object');
 			res.body.should.have.property('status');
@@ -169,7 +168,7 @@ describe('GET volume for a box', function() {
 	});
 	it('Should respond ERR if any metric is NaN', function(done) {
 		chai.request('http://localhost:3000').get('/volume/sphere/abs').end(function(err, res) {
-			res.should.have.status('200');
+			res.should.have.status('500');
 			res.should.be.json;
 			res.body.should.be.an('object');
 			res.body.should.have.property('status');
@@ -290,4 +289,74 @@ describe('testing to make sure that all test works on pow', function(){
 		})
 	})
 })
-		
+
+// Patricios Test här nere
+describe('Test of Radius of a circle, by Patricio Vergara', function(){
+
+	it('should work if the user gives a positive number with GET /radie/:x', function (done){
+
+		var num1 = Math.round((Math.random() * 10) + 1);
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + num1).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('OK');
+
+			res.body.result.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if the user gives a string with GET /radie/:x', function (done){
+
+		var minString = "String";
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + minString).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERROR');
+
+			res.body.messege.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if the user gives a negative number with GET /radie/:x', function (done){
+
+		var negativeNum = (Math.round((Math.random() * 10) + 1)) * -1;
+
+		chai.request('http://127.0.0.1:4000').get('/radie/' + negativeNum).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERROR');
+
+			res.body.messege.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+});		

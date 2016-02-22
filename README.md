@@ -121,14 +121,23 @@ Example:
 /pyth/3/b/5
 /pyth/3/4/c
 ```
+
+## radie = √ ( area / π )
 returnera radie från en area - Patricio V.
-radie = √ ( area / π )
 
+````
 /radie/:area
+````
 
-## /volume/shape/1/2/3
-Calculate the volume for the geometric figures: cylinder, box, sphere
-and then the metrics for the figure: height/length/width - James L.
+
+## /volume/shape/1/2/3 - Olle
+Calculate the volume for the geometric figures: cylinder, box, sphere and cone
+and then the metrics for the figure: 
+cylinder: cyl/radius/height
+box: box/height/length/width
+sphere: sphere/radius/
+cone: cone/radius/height
+
 
 
 ## /eucl/p/q
@@ -142,3 +151,10 @@ Manhattan distance - The distance between two points measured along axes at righ
 ```
 /manh/0.0/10.10
 ```
+
+## /circumference/radien
+Calculate the curcumfence of the circle - Martin 
+
+```
+/circumference/4
+````
