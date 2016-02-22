@@ -444,9 +444,8 @@ describe('Math Tan', function() {
 		.get('/tan/a' )
 		.end(function(err, res) {
 			res.body.status.should.be.a('string');
-			res.body.status.should.equal('OK')
-			res.body.should.have.property('answer');
-			res.body.answer.should.be.a('number');
+			res.body.status.should.equal('Err');
+			res.body.should.have.property('status');
 			done();
 		});
 	});
