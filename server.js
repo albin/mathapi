@@ -201,9 +201,28 @@ app.get('/circumference/:radius', function(req, res){
 	}
 });
 
+app.get("/calculon/:x/:y/:z", function(req, res){
+	var x= req.params.x;
+	var y= req.params.y;
+	var z= req.params.z;
+
+	if(isNaN(parseInt(x)) !== false || isNaN(parseInt(y)) !== false || isNaN(parseInt(z)) !== false ) {
+		res.status(404);
+		res.json({status:"error"});
+
+	}else{
+		var svar= (x/y)*z;
+		res.status(200);
+		res.json({svar: svar});
+		
+
+	}
+});
 
 //Dont add anything below this line.
 app.use(express.static("public"));
 app.use('/', router);
 app.listen(port);
 console.log('Up and runing at port' + port);
+
+
