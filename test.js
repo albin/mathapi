@@ -463,9 +463,8 @@ describe('Math Tan', function() {
 		});
 	});
 });
+
 	
-
-
 // Monas Test 
 describe('Test of Multiply the two number and division on other number', function(){
 
@@ -528,3 +527,41 @@ describe('Test of Multiply the two number and division on other number', functio
 
 	});
 });
+
+//Math Round, Nadim.
+describe('returns the value of a number rounded to the nearest integer.', function() {
+	it('should return a number on correct input', function(done) {
+		chai.request('http://localhost:3000')
+		.get('/round/15,5')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('OK');
+			res.should.be.number;
+			done();
+		});
+	});
+	it('should return error on input other than number', function(done) {
+		chai.request('http://localhost:3000')
+		.get('/round/abc')
+		.end(function(err, res) {
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.status.should.equal('ERR');
+			done();
+		});
+	});
+	it('should return 404 on page not avalible', function(done){
+		chai.request('http://localhost:3000')
+		.get('/pageNotFound/' )
+		.end(function(err,res){
+			res.should.have.status(404);
+			
+
+			done();
+		});
+	});
+
+});
+
+
