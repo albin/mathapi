@@ -33,7 +33,7 @@ Round, Returns the value 21 - Nadim
 
 ## /flo/45.9
 Floor, Rounds down to lowest integer - Anders  
-Note: Max 15 whole numbers and 15 decimals  as input 
+Note: Max 15 digits  as input 
 ```
 /flo/x  
 ```
