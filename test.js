@@ -297,7 +297,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 		var num1 = Math.round((Math.random() * 10) + 1);
 
-		chai.request('http://127.0.0.1:4000').get('/radie/' + num1).end(function(err, res){
+		chai.request('http://127.0.0.1:3000').get('/radie/' + num1).end(function(err, res){
 
 			res.should.have.status(200);
 
@@ -319,7 +319,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 		var minString = "String";
 
-		chai.request('http://127.0.0.1:4000').get('/radie/' + minString).end(function(err, res){
+		chai.request('http://127.0.0.1:3000').get('/radie/' + minString).end(function(err, res){
 
 			res.should.have.status(200);
 
@@ -341,7 +341,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 		var negativeNum = (Math.round((Math.random() * 10) + 1)) * -1;
 
-		chai.request('http://127.0.0.1:4000').get('/radie/' + negativeNum).end(function(err, res){
+		chai.request('http://127.0.0.1:3000').get('/radie/' + negativeNum).end(function(err, res){
 
 			res.should.have.status(200);
 
@@ -359,4 +359,20 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 	});
 
-});		
+});	
+
+describe("Circumference of circle by radius", function(){
+	it('should return an object with status OK and circumference on GET: /circumference/radius', function (done){
+		chai.request('http://127.0.0.1:3000').get('/circumference/10').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+});	
