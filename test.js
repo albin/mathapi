@@ -647,3 +647,68 @@ describe('Math.acos() - by Aleksandar C', function(){
 	});
 });
 
+
+
+// Granits test för kvadratroten ur X * Y
+
+
+describe('Returns the square root och X * Y', function(){
+
+	it('1. should return a number and sucess status', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/sqroot/5/3' ).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.svar.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('2. should not work if one variable isNaN', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/sqroot/4/a').end(function(err, res){
+
+			res.should.have.status(404);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('Error');
+
+			res.body.status.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+
+	it('3. should work and result in a number', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/sqroot/14/128').end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.svar.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+});
+

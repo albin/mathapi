@@ -398,6 +398,23 @@ app.get('/acos/:x', function (req,res){
 
 
 
+ // GRANITS ROTEN UR X*Y
+
+app.get("/sqroot/:x/:y", function (req, res) {
+	
+	if(isNaN(parseInt(req.params.x)) !== false || isNaN(parseInt(req.params.y)) !== false) {
+		res.status(404);
+		res.json({ status: "Error"});
+	}else {
+		var svar = Math.sqrt(parseInt(req.params.x)*parseInt(req.params.y))
+		console.log(svar)
+		res.status(200);
+		res.json({svar: svar});
+
+
+	}
+
+});
 
 
 
