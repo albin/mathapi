@@ -262,7 +262,7 @@ describe('testing to make sure that all test works on pow', function(){
 			res.body.should.be.an('object');
 			res.body.should.have.property('status');
 			
-			res.body.status.should.equal('Err');
+			res.body.status.should.equal('ERR');
 		
 			done();
 		})
@@ -317,7 +317,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 			res.body.should.be.an('object');
 
-			res.body.status.should.equal('ERROR');
+			res.body.status.should.equal('ERR');
 
 			res.body.messege.should.be.a('string');
 
@@ -339,7 +339,7 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 
 			res.body.should.be.an('object');
 
-			res.body.status.should.equal('ERROR');
+			res.body.status.should.equal('ERR');
 
 			res.body.messege.should.be.a('string');
 
@@ -350,6 +350,77 @@ describe('Test of Radius of a circle, by Patricio Vergara', function(){
 	});
 
 });	
+
+// Sara Test här nere
+describe('test av divide x och y och multiply med z', function(){
+
+	it('should responde with a number', function (done){
+
+		
+
+		chai.request('http://127.0.0.1:3000').get('/calculon/3/10/6').end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+		
+			// Ger inte denna siffran som resultat (5) utan (1.7999999999999998) -> res.body.svar.should.equal(5);
+			res.body.status.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('should not work if one variable isNaN', function (done){
+
+
+		chai.request('http://127.0.0.1:3000').get('/calculon/4/2/ha').end(function(err, res){
+
+			res.should.have.status(404);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERR');
+
+			res.body.status.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+	it('should work and result in a number', function (done){
+
+		
+
+		chai.request('http://127.0.0.1:3000').get('/calculon/-2/6/-4').end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			// Ger inte denna siffran som resultat (3) utan (1.3333333333333333) -> res.body.svar.should.equal(3);
+
+			res.body.status.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+});		
+
 
 describe("Circumference of circle by radius", function(){
 	it('should return an object with status OK and circumference on GET: /circumference/radius', function (done){
@@ -405,7 +476,7 @@ describe('Math MAX by Alexander W', function() {
 			
 			res.body.should.have.property('status');
 			
-			res.body.status.should.equal('ERROR');
+			res.body.status.should.equal('ERR');
 
 			done();
 		});
@@ -444,7 +515,7 @@ describe('Math Tan', function() {
 		.get('/tan/a' )
 		.end(function(err, res) {
 			res.body.status.should.be.a('string');
-			res.body.status.should.equal('Err');
+			res.body.status.should.equal('ERR');
 			res.body.should.have.property('status');
 			done();
 		});
@@ -465,6 +536,68 @@ describe('Math Tan', function() {
 });
 
 
+// Monas Test 
+  describe('Test of Multiply the two number and division on other number', function(){
+  
+ 	it('should responde with a number', function (done){
+ 
+ 		chai.request('http://127.0.0.1:3000').get('/calculon/5/3/3' ).end(function(err, res){
+ 
+ 			res.should.have.status(200);
+ 
+ 			res.should.be.json;
+ 
+ 			res.body.should.be.an('object');
+ 
+ 			res.body.status.should.be.a('number');
+ 
+ 			done();
+ 
+ 		});
+ 
+ 	});
+ 
+ 	it('should not work if one variable isNaN', function (done){
+ 
+ 		var minString = "String";
+ 
+ 		chai.request('http://127.0.0.1:3000').get('/calculon/4/2/a').end(function(err, res){
+ 
+ 			res.should.have.status(404);
+ 
+ 			res.should.be.json;
+ 
+ 			res.body.should.be.an('object');
+ 
+ 			res.body.status.should.equal('ERR');
+ 
+ 			res.body.status.should.be.a('string');
+ 
+ 			done();
+ 
+ 		});
+ 
+ 	});
+ 
+ 
+ 	it('should work and result in a number', function (done){
+ 
+ 		chai.request('http://127.0.0.1:3000').get('/calculon/-2/6/-4').end(function(err, res){
+ 
+ 			res.should.have.status(200);
+ 
+ 			res.should.be.json;
+ 
+ 			res.body.should.be.an('object');
+ 
+ 			// denna stämmer inte -> res.body.svar.should.equal(3);
+ 
+ 			done();
+ 
+ 		});
+  
+  	});
+  });
 		
 
 //Math Round, Nadim.
@@ -682,7 +815,7 @@ describe('Returns the square root och X * Y', function(){
 
 			res.body.should.be.an('object');
 
-			res.body.status.should.equal('Error');
+			res.body.status.should.equal('ERR');
 
 			res.body.status.should.be.a('string');
 

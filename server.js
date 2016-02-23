@@ -134,7 +134,7 @@ app.get('/pow/:base/:second', function(req,res){
 	var resultat = Math.pow(base, exponent);
 
 	if( isNaN(resultat) || resultat === null || resultat === undefined){
-		res.json({status: "Err"});
+		res.json({status: "ERR"});
 	}
 	else{
 	res.json({
@@ -180,7 +180,7 @@ app.get('/radie/:x', function(req, res){  // Patricios funktion
 
 	if (isNaN(radie) === true) {
 
-		res.json({status: "ERROR", messege: "Parameter is not a number or lower than 0"});
+		res.json({status: "ERR", messege: "Parameter is not a number or lower than 0"});
 
 	}
 	else
@@ -197,7 +197,7 @@ app.get('/circumference/:radius', function(req, res){
 	if(radius !== null && radius !== undefined && radius !== NaN && radius !== 0 && radius > 0){
 		res.json({status: 'OK', answer: circumference});
 	} else{
-		res.json({status: "error"});
+		res.json({status: "ERR"});
 	}
 });
 
@@ -208,12 +208,12 @@ app.get("/calculon/:x/:y/:z", function(req, res){
 
 	if(isNaN(parseInt(x)) !== false || isNaN(parseInt(y)) !== false || isNaN(parseInt(z)) !== false ) {
 		res.status(404);
-		res.json({status:"error"});
+		res.json({status:"ERR"});
 
 	}else{
 		var svar= (x/y)*z;
 		res.status(200);
-		res.json({svar: svar});
+		res.json({status: svar});
 		
 
 	}
@@ -228,7 +228,7 @@ app.get('/tan/:number', function (req,res) {
   var resultat = Math.tan(number);
  
   if(isNaN(resultat)){
-  	res.json({ status: "Err"});
+  	res.json({ status: "ERR"});
   }
  
   else{
@@ -250,7 +250,7 @@ app.get('/max/:x/:y', function(req, res) {
   	
     if(isNaN(x) || isNaN(y)) {
 	
-        res.json({status: 'ERROR'});
+        res.json({status: 'ERR'});
     
     }else{
 	
@@ -404,7 +404,7 @@ app.get("/sqroot/:x/:y", function (req, res) {
 	
 	if(isNaN(parseInt(req.params.x)) !== false || isNaN(parseInt(req.params.y)) !== false) {
 		res.status(404);
-		res.json({ status: "Error"});
+		res.json({ status: "ERR"});
 	}else {
 		var svar = Math.sqrt(parseInt(req.params.x)*parseInt(req.params.y))
 		console.log(svar)
