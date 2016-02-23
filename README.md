@@ -69,7 +69,7 @@ Cbrt, returns the cube root of a number - Tobias J
 ```
 
 ## /sqr1/
-Sqrt1_2, represents the square root of 1/2 which is approximately 0.707 - free  
+Sqrt1_2, represents the square root of 1/2 which is approximately 0.707 - James L
 ```
 /sqr1/x  
 ```
@@ -110,8 +110,8 @@ Acos, returns a numeric value between 0 and π radians for x between -1 and 1.
 Math.acos(x)
 ```
 
-## /pyth/:a/:b/:c - James L
-Pythagora's Theorem - Given a right triangle where c is the length of the hypotenus, a and b are the two other sides, this equation can be formed: a^2+b^2=c^2 - James L
+## /pyth/:a/:b/:c - 
+Pythagora's Theorem - Given a right triangle where c is the length of the hypotenus, a and b are the two other sides, this equation can be formed: a^2+b^2=c^2 - 
 ```
 /pyth/a/b/c
 ```
