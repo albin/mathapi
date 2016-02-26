@@ -421,7 +421,7 @@ describe('test av divide x och y och multiply med z', function(){
 
 });		
 
-
+//Martin Nilsson
 describe("Circumference of circle by radius", function(){
 	it('should return an object with status OK and circumference on GET: /circumference/radius', function (done){
 		chai.request('http://127.0.0.1:3000').get('/circumference/10').end(function (err, res){
@@ -430,9 +430,26 @@ describe("Circumference of circle by radius", function(){
 			res.body.should.be.an('object');
 			res.body.should.have.property('status');
 			res.body.status.should.be.a('string');
-			res.body.status.should.equal('OK')
+			res.body.status.should.equal('OK');
 			res.body.should.have.property('answer');
 			res.body.answer.should.be.a('number');
+			done();
+		});
+	});
+
+	it('should return error, caused by a negative number', function (done){
+		chai.request('http://127.0.0.1:3000').get('/circumference/-10').end(function (err, res){
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('ERR');
+			done();
+		});
+	});
+
+	it('should retun cannot GET, caused by missed param', function (done){
+		chai.request('http://127.0.0.1:3000').get('/circumference/').end(function (err, res){
+			res.should.have.status(404);
 			done();
 		});
 	});
