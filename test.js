@@ -875,7 +875,7 @@ describe('Tests the math.object low, Marcus tests', function(){
 
 			res.body.should.be.an('object');
 
-			res.body.svar.should.be.a('number');
+			res.body.result.should.be.a('number');
 
 			done();
 
@@ -887,7 +887,7 @@ describe('Tests the math.object low, Marcus tests', function(){
 
 		chai.request('http://127.0.0.1:3000').get('/low/3/k').end(function(err, res){
 
-			res.should.have.status(404);
+			res.should.have.status(200);
 
 			res.should.be.json;
 
@@ -914,7 +914,7 @@ describe('Tests the math.object low, Marcus tests', function(){
 
 			res.body.should.be.an('object');
 
-			res.body.svar.should.be.a('number');
+			res.body.result.should.be.a('number');
 
 			done();
 
