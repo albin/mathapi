@@ -862,3 +862,63 @@ describe('Returns the square root och X * Y', function(){
 	});
 });
 
+// Marcus tester
+describe('Tests the math.object low, Marcus tests', function(){
+
+	it('1. should return a result in the form of a number and the satus as string', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/low/5/3' ).end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.svar.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+
+	it('2. should not work if a variable is not a number', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/low/3/k').end(function(err, res){
+
+			res.should.have.status(404);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.status.should.equal('ERR');
+
+			res.body.status.should.be.a('string');
+
+			done();
+
+		});
+
+	});
+
+
+	it('3. should return a number and a result as string', function (done){
+
+		chai.request('http://127.0.0.1:3000').get('/low/10.5/108').end(function(err, res){
+
+			res.should.have.status(200);
+
+			res.should.be.json;
+
+			res.body.should.be.an('object');
+
+			res.body.svar.should.be.a('number');
+
+			done();
+
+		});
+
+	});
+});
