@@ -9,6 +9,7 @@ Add your test below, you need three test's (it), what they will check on your ma
 Follow the structure down below in the commented section, just an example how to test math-min gives a number.
 Server port is on 3000
 */
+
 /*
 //Marcus W
 var number1 = 1;
@@ -123,6 +124,8 @@ describe('Math.ceil, by Mayra', function() {
 	});
 
 });
+
+
 describe('GET volume for a box', function() {
 	it('Should GET a single object with status OK on volume/box/1/2/3', function(done) { 
 		chai.request('http://localhost:3000').get('/volume/box/1/2/3').end(function(err, res) {
@@ -167,6 +170,7 @@ describe('GET volume for a box', function() {
 		});
 	});
 });
+
 //Andreas Romlin sqrt(x)
 describe('Square root Math.sqrt(x) of positive number', function() {
 	it('should return a number on correct input', function(done) {
@@ -278,7 +282,7 @@ describe('testing to make sure that all test works on pow', function(){
 			done();
 		})
 	})
-})
+});
 
 // Patricios Test här nere
 describe('Test of Radius of a circle, by Patricio Vergara', function(){
@@ -366,9 +370,8 @@ describe('test av divide x och y och multiply med z', function(){
 
 			res.body.should.be.an('object');
 
-		
 			// Ger inte denna siffran som resultat (5) utan (1.7999999999999998) -> res.body.svar.should.equal(5);
-			res.body.status.should.be.a('number');
+			 res.body.result.should.be.a('number');
 
 			done();
 
@@ -411,7 +414,7 @@ describe('test av divide x och y och multiply med z', function(){
 
 			// Ger inte denna siffran som resultat (3) utan (1.3333333333333333) -> res.body.svar.should.equal(3);
 
-			res.body.status.should.be.a('number');
+			res.body.result.should.be.a('number');
 
 			done();
 
@@ -431,8 +434,8 @@ describe("Circumference of circle by radius", function(){
 			res.body.should.have.property('status');
 			res.body.status.should.be.a('string');
 			res.body.status.should.equal('OK');
-			res.body.should.have.property('answer');
-			res.body.answer.should.be.a('number');
+			res.body.should.have.property('result');
+			res.body.result.should.be.a('number');
 			done();
 		});
 	});
@@ -566,7 +569,7 @@ describe('Math Tan', function() {
  
  			res.body.should.be.an('object');
  
- 			res.body.status.should.be.a('number');
+ 			res.body.result.should.be.a('number');
  
  			done();
  
@@ -652,6 +655,7 @@ describe('returns the value of a number rounded to the nearest integer.', functi
 	});
 
 });
+
 //Anders flo(x)
 describe('Returns the largest integer less than or equal to a given number', function () {
     it('return 13 on 13.96 as input', function (done) {

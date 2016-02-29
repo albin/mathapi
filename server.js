@@ -134,7 +134,7 @@ app.get('/pow/:base/:second', function(req,res){
 	var resultat = Math.pow(base, exponent);
 
 	if( isNaN(resultat) || resultat === null || resultat === undefined){
-		res.json({status: "Err"});
+		res.json({status: "ERR"});
 	}
 	else{
 	res.json({
@@ -144,6 +144,7 @@ app.get('/pow/:base/:second', function(req,res){
 	}
 
 });
+
 //Mayra
 app.get('/ceil/:x', function (req, res) {
     
@@ -156,6 +157,7 @@ app.get('/ceil/:x', function (req, res) {
         res.json({Status: 'OK', Result: result})
     }
 });
+
 //Andreas R
 app.get('/sqr/:a', function(req, res) {
 
@@ -164,14 +166,15 @@ app.get('/sqr/:a', function(req, res) {
 	if(/^-/.test(req.params.a) === true) {
 		var x = req.params.a.replace(/^-/, '');
 		x = Math.sqrt(x);
-		res.json({status: 'OK', answer: x + 'i'});
+		res.json({status: 'OK', result: x + 'i'});
 	}else if(isNaN(x) === true) {
 		res.status(400);
 		res.json({status: 'ERR', info: 'Input must be a number!'});
 	} else {
-		res.json({status: 'OK', answer: x});
+		res.json({status: 'OK', result: x});
 	}
 });
+
 
 app.get('/radie/:x', function(req, res){  // Patricios funktion
 
@@ -180,7 +183,7 @@ app.get('/radie/:x', function(req, res){  // Patricios funktion
 
 	if (isNaN(radie) === true) {
 
-		res.json({status: "ERROR", messege: "Parameter is not a number or lower than 0"});
+		res.json({status: "ERR", messege: "Parameter is not a number or lower than 0"});
 
 	}
 	else
@@ -195,9 +198,9 @@ app.get('/circumference/:radius', function(req, res){
 		circumference = (2*Math.PI)*radius;
 
 	if(radius !== null && radius !== undefined && radius !== NaN && radius !== 0 && radius > 0){
-		res.json({status: 'OK', answer: circumference});
+		res.json({status: 'OK', result: circumference});
 	} else{
-		res.json({status: "error"});
+		res.json({status: "ERR"});
 	}
 });
 
@@ -209,12 +212,12 @@ app.get("/calculon/:x/:y/:z", function(req, res){
 
 	if(isNaN(parseInt(x)) !== false || isNaN(parseInt(y)) !== false || isNaN(parseInt(z)) !== false ) {
 		res.status(404);
-		res.json({status:"error"});
+		res.json({status:"ERR"});
 
 	}else{
 		var svar= (x/y)*z;
 		res.status(200);
-		res.json({svar: svar});
+		res.json({result: svar});
 		
 
 	}
@@ -230,7 +233,7 @@ app.get('/tan/:number', function (req,res) {
   var resultat = Math.tan(number);
  
   if(isNaN(resultat)){
-  	res.json({ status: "Err"});
+  	res.json({ status: "ERR"});
   }
  
   else{
@@ -252,7 +255,7 @@ app.get('/max/:x/:y', function(req, res) {
   	
     if(isNaN(x) || isNaN(y)) {
 	
-        res.json({status: 'ERROR'});
+        res.json({status: 'ERR'});
     
     }else{
 	
@@ -277,6 +280,136 @@ app.get('/round/:x', function (req, res){
         res.json({status: 'OK', result: result})
     }
 });
+
+//Anders
+app.get('/flo/:numberToFloor', function (req, res) {
+    // Add more error checking
+    "use strict";
+    
+    // There is a max limit of digits in this route.
+    // Integers(numbers without a period or exponent notation) are considered accurate up to 15 digits.
+    // For example: Math.floor(1.9999999999999999); does not yield expected floor result ;-)
+    // For example: Math.floor(9999999999999999); does not yield expected floor result ;-)
+    
+    var myErrorMessage = null, // Here we put any error message.
+        providedInput = req.params.numberToFloor, // Keep track of the input
+        maxNumberOfDigits = 15; // This is the max limit for total number of digits in input
+    
+    // Make sure we are working with . and not , when using the Math function
+    var providedInput = providedInput.replace("," , ".");
+    
+    // Check that we got valid user input
+    function validInput(myInput) {
+        
+        // Did we get a number to work with.
+        if (isNaN(myInput) === true) {
+            myErrorMessage = "you have to provide a number";
+            return false;
+        }
+        
+        // Make sure we do not exeed the max limit        
+        // First remove any decimals
+        myInput = myInput.replace('.', '');
+        
+        // Check total length
+        if ((myInput.length > maxNumberOfDigits)) {
+            myErrorMessage = "too many digits the max limit is " + maxNumberOfDigits + " digits";
+            return false;
+        }
+        
+        
+        return true;
+    }
+    
+    // Check if we got valid user input, if not return the error
+    if (validInput(providedInput) === false) {
+        res.status(400).json({ status: 'ERR', info: myErrorMessage });
+    } else { // Yey, valid user input
+        // Floor the value
+        floorTheValue(providedInput);
+    }
+    
+    // Here we return the largest integer less than or equal to a given number
+    function floorTheValue(myInput) {
+        try {
+            myInput = Math.floor(myInput);
+        } catch (e) {
+            res.status(500).json({ status: 'ERR', info: e.message });
+        };
+        res.json({ status: 'OK', result: myInput })
+    }
+});
+
+// Aleksandar C Math.fro
+
+app.get('/fro/:x', function (req, res) {
+
+	var x = parseFloat(req.params.x);
+	var svar = Math.fround(x);
+
+
+	if (isNaN(x)!== false || x === undefined || x === null) {
+		res.status(404);
+		res.json({status:"ERR"});
+	}
+	else
+	{
+		res.status(200);
+		res.json({status:svar});
+		
+	}
+
+});
+
+
+
+
+app.get('/acos/:x', function (req,res){
+
+	var nummer = parseFloat(req.params.x);
+	var svar = Math.acos(nummer);
+
+	if(nummer === "" || nummer === undefined || nummer === null)
+	{	res.status(404);
+		res.json({status:'ERR'});
+	}
+	else
+	{
+		res.status(200);
+		res.json({status:svar});
+	}
+
+});
+
+
+
+ // GRANITS ROTEN UR X*Y
+
+app.get("/sqroot/:x/:y", function (req, res) {
+	
+	if(isNaN(parseInt(req.params.x)) !== false || isNaN(parseInt(req.params.y)) !== false) {
+		res.status(404);
+		res.json({ status: "ERR"});
+	}else {
+		var svar = Math.sqrt(parseInt(req.params.x)*parseInt(req.params.y))
+		console.log(svar)
+		res.status(200);
+		res.json({svar: svar});
+
+
+	}
+
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
