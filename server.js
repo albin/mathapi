@@ -261,7 +261,7 @@ app.get('/max/:x/:y', function(req, res) {
     }
 });
 
-
+//Mona kh
 app.get('/calculon/:x/:y/:z', function(req, res){
 	var x= req.params.x;
 	var y= req.params.y;
@@ -277,6 +277,7 @@ app.get('/calculon/:x/:y/:z', function(req, res){
        res.json({svar: svar});
        //res.send('<h1>' + svar +'</h1>');
     }
+    console.log(svar)
 })
 
 
