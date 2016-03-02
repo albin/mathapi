@@ -403,6 +403,29 @@ app.get("/sqroot/:x/:y", function (req, res) {
 
 
 
+//Sumeja /eucl/p/q
+
+
+app.get("/eucl/:p/:q", function (req, res) {
+			
+	var p = req.params.p.split(".");
+	var q = req.params.q.split(".");
+	
+
+	if(isNaN(parseInt(p[0])) !== false || isNaN(parseInt(p[1])) !== false || isNaN(parseInt(q[0])) !== false || isNaN(parseInt(q[1])) !== false) {
+		res.status(404);
+		res.json({status: "Error"});
+
+	}else {
+		var distance = Math.sqrt(Math.pow(p[0] - q[0], 2) + Math.pow(p[1] - q[1], 2));
+		res.status(200);
+		res.json({answer: distance, status: "OK"});
+	}
+});
+
+
+
+
 
 
 

@@ -926,3 +926,47 @@ describe('Tests the math.object low, Marcus tests', function(){
 
 	});
 });
+
+
+
+//Sumeja - Euclidean distance
+
+describe("Eucledian distance, return distance between coordinates", function(){
+	it('should return a number and status OK', function (done){
+		chai.request('http://127.0.0.1:3000').get('/eucl/3.3/5.5').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+			done();
+		})
+	});
+	it('should also return number and status OK', function (done){
+		chai.request('http://127.0.0.1:3000').get('/eucl/3.3/9.1').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+
+			done();
+		})
+	});
+	it('should return Error if one variabel isNaN', function (done){
+		chai.request('http://127.0.0.1:3000').get('/eucl/1.a/9.5').end(function (err, res){
+			res.should.have.status(404);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('Error')
+			done();
+
+		});
+	});
+});
