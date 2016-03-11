@@ -970,3 +970,44 @@ describe("Eucledian distance, return distance between coordinates", function(){
 		});
 	});
 });
+
+
+//Hamze
+describe("Manhattan-distance by Hamzeh ", function(){
+	it('should return a number and status OK', function (done){
+		chai.request('http://127.0.0.1:3000').get('/manh/3.0/4.1').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+			done();
+		})
+	});
+	it('should return a SINGLE object with status OK on /pyth/<a>/<b>/<c> GET', function (done){
+		chai.request('http://127.0.0.1:3000').get('/manh/6.6/9.9').end(function (err, res){
+			res.should.have.status(200);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('OK')
+			res.body.should.have.property('answer');
+			done();
+		})
+	});
+	it('should return a SINGLE object with status ERR on /pyth/<a>/<b>/<c> GET', function (done){
+		chai.request('http://127.0.0.1:3000').get('/manh/4.9/a.3').end(function (err, res){
+			res.should.have.status(404);
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.have.property('status');
+			res.body.status.should.be.a('string');
+			res.body.status.should.equal('Error')
+			done();
+
+		});
+	});
+});
